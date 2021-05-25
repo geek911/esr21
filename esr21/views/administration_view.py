@@ -7,5 +7,5 @@ from edc_navbar import NavbarViewMixin
 class AdministrationView(EdcBaseViewMixin, NavbarViewMixin,
                          AdministrationViewMixin, TemplateView):
 
-    navbar_name = 'vaccine'
+    navbar_name = 'esr21'
     navbar_selected_item = 'administration'
