@@ -62,8 +62,12 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_crypto_fields.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
+    'edc_visit_schedule.apps.AppConfig',
     'esr21_subject.apps.AppConfig',
+    'esr21_visit_schedule.apps.AppConfig',
     'esr21.apps.EdcBaseAppConfig',
+    'esr21.apps.EdcFacilityAppConfig',
+    'esr21.apps.EdcProtocolAppConfig',
     'esr21.apps.AppConfig',
 
 ]
@@ -149,3 +153,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'esr21', 'static')
 
 # dashboards
 DASHBOARD_URL_NAMES = {}
+
+# edc_facility
+COUNTRY = 'botswana'

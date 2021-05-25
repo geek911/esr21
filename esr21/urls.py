@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.urls import path, include
 from django.views.generic.base import RedirectView
+from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 from .views import HomeView, AdministrationView
 
 urlpatterns = [
@@ -26,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('admin/', admin.site.urls),
+    path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
 
     path('administration/', AdministrationView.as_view(),
          name='administration_url'),
@@ -34,6 +36,8 @@ urlpatterns = [
          name='potlako_subject_models_url'),
 
     path('edc_base/', include('edc_base.urls')),
+    path('edc_protocol/', include('edc_protocol.urls')),
+    path('edc_visit_schedule/', include('edc_visit_schedule.urls')),
 
     path('switch_sites/', LogoutView.as_view(next_page=settings.INDEX_PAGE),
          name='switch_sites_url'),
