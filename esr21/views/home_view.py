@@ -5,8 +5,8 @@ from edc_navbar import NavbarViewMixin
 
 class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
 
-    template_name = 'vaccine/home.html'
-    navbar_name = 'vaccine'
+    template_name = 'esr21/home.html'
+    navbar_name = 'esr21'
     navbar_selected_item = 'home'
 
     def get_context_data(self, **kwargs):

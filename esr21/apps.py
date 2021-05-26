@@ -3,7 +3,7 @@ from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
 
 
 class AppConfig(DjangoAppConfig):
-    name = 'vaccine'
+    name = 'esr21'
 
 
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):

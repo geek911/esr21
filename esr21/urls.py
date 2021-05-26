@@ -18,7 +18,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.urls import path, include
-from django.views.generic.base import RedirectView
 from .views import HomeView, AdministrationView
 
 urlpatterns = [
@@ -29,9 +28,7 @@ urlpatterns = [
 
     path('administration/', AdministrationView.as_view(),
          name='administration_url'),
-    path('admin/potlako_subject/',
-         RedirectView.as_view(url='admin/potlako_subject/'),
-         name='potlako_subject_models_url'),
+
 
     path('edc_base/', include('edc_base.urls')),
 
