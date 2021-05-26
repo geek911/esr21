@@ -62,8 +62,19 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_crypto_fields.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
+    'edc_visit_schedule.apps.AppConfig',
+    'edc_appointment.apps.AppConfig',
+    'edc_dashboard.apps.AppConfig',
+    'edc_device.apps.AppConfig',
+    'edc_lab.apps.AppConfig',
+    'edc_subject_dashboard.apps.AppConfig',
+    'edc_timepoint.apps.AppConfig',
     'esr21_subject.apps.AppConfig',
+    'esr21_dashboard.apps.AppConfig',
+    'esr21_visit_schedule.apps.AppConfig',
     'esr21.apps.EdcBaseAppConfig',
+    'esr21.apps.EdcFacilityAppConfig',
+    'esr21.apps.EdcProtocolAppConfig',
     'esr21.apps.AppConfig',
 
 ]
@@ -77,6 +88,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'edc_dashboard.middleware.DashboardMiddleware',
+    'edc_subject_dashboard.middleware.DashboardMiddleware',
 ]
 
 ROOT_URLCONF = 'esr21.urls'
@@ -147,5 +160,18 @@ MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'esr21', 'static')
 
+HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
+
 # dashboards
-DASHBOARD_URL_NAMES = {}
+DASHBOARD_URL_NAMES = {
+    'screening_listboard_url': 'esr21_dashboard:screening_listboard_url',
+}
+
+DASHBOARD_BASE_TEMPLATES = {
+    'listboard_base_template': 'esr21/base.html',
+    'dashboard_base_template': 'esr21/base.html',
+    'screening_listboard_template': 'esr21_dashboard/screening/listboard.html',
+}
+
+# edc_facility
+COUNTRY = 'botswana'
