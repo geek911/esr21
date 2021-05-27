@@ -27,7 +27,7 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
     protocol = 'AZD1222'
-    protocol_name = 'ESR21'
+    protocol_name = 'ADZ 1222 - ESR-21-21311'
     protocol_number = '1222'
     protocol_title = ''
     study_open_datetime = datetime(

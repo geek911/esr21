@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_extensions',
     'django_crypto_fields.apps.AppConfig',
+    'edc_consent.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'edc_identifier.apps.AppConfig',
     'edc_visit_schedule.apps.AppConfig',
@@ -69,9 +70,11 @@ INSTALLED_APPS = [
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
     'edc_lab.apps.AppConfig',
+    'edc_registration.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_timepoint.apps.AppConfig',
     'esr21_subject.apps.AppConfig',
+    'esr21_prn.apps.AppConfig',
     'esr21_dashboard.apps.AppConfig',
     'esr21_visit_schedule.apps.AppConfig',
     'esr21.apps.EdcBaseAppConfig',
@@ -147,7 +150,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+LANGUAGES = (
+    ('tn', 'Setswana'),
+    ('en', 'English'),
+)
+
+
+TIME_ZONE = 'Africa/Gaborone'
 
 USE_I18N = True
 
@@ -167,12 +176,14 @@ HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 # dashboards
 DASHBOARD_URL_NAMES = {
     'screening_listboard_url': 'esr21_dashboard:screening_listboard_url',
+    'subject_listboard_url': 'esr21_dashboard:subject_listboard_url',
 }
 
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'esr21/base.html',
     'dashboard_base_template': 'esr21/base.html',
     'screening_listboard_template': 'esr21_dashboard/screening/listboard.html',
+    'subject_listboard_template': 'esr21_dashboard/subject/listboard.html',
 }
 
 # edc_facility

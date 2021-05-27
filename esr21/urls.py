@@ -40,6 +40,7 @@ urlpatterns = [
          name='esr21_subject_models_url'),
 
     path('edc_base/', include('edc_base.urls')),
+    path('edc_consent/', include('edc_consent.urls')),
     path('esr21_subject/', include('esr21_subject.urls')),
     path('subject/', include('esr21_dashboard.urls')),
     path('edc_device/', include('edc_device.urls')),
