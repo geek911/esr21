@@ -20,6 +20,17 @@ from django.contrib.auth.views import LogoutView
 from django.urls import path, include
 from django.views.generic.base import RedirectView
 
+from edc_action_item.admin_site import edc_action_item_admin
+from edc_appointment.admin_site import edc_appointment_admin
+from edc_calendar.admin_site import edc_calendar_admin
+from edc_identifier.admin_site import edc_identifier_admin
+from edc_lab.admin_site import edc_lab_admin
+from edc_locator.admin_site import edc_locator_admin
+from edc_metadata.admin_site import edc_metadata_admin
+from edc_reference.admin_site import edc_reference_admin
+from edc_registration.admin_site import edc_registration_admin
+from edc_call_manager.admin_site import edc_call_manager_admin
+from edc_data_manager.admin_site import edc_data_manager_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 from esr21_subject.admin_site import esr21_subject_admin
 
@@ -28,6 +39,17 @@ from .views import HomeView, AdministrationView
 urlpatterns = [
     path('accounts/', include('edc_base.auth.urls')),
     path('admin/', include('edc_base.auth.urls')),
+    
+    path('admin/', edc_appointment_admin.urls),
+    path('admin/', edc_calendar_admin.urls),
+    path('admin/', edc_lab_admin.urls),
+    path('admin/', edc_data_manager_admin.urls),
+    path('admin/', edc_locator_admin.urls),
+    path('admin/', edc_action_item_admin.urls),
+    path('admin/', edc_identifier_admin.urls),
+    path('admin/', edc_metadata_admin.urls),
+    path('admin/', edc_registration_admin.urls),
+    path('admin/', edc_reference_admin.urls),
 
     path('admin/', esr21_subject_admin.urls),
     path('admin/', admin.site.urls),
@@ -47,6 +69,17 @@ urlpatterns = [
     path('edc_protocol/', include('edc_protocol.urls')),
     path('edc_subject_dashboard/', include('edc_subject_dashboard.urls')),
     path('edc_visit_schedule/', include('edc_visit_schedule.urls')),
+    path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
+    path('admin/edc_call_manager/', edc_call_manager_admin.urls),
+    
+    path('edc_appointment/', include('edc_appointment.urls')),
+    path('edc_action_item/', include('edc_action_item.urls')),
+    path('edc_calendar/', include('edc_calendar.urls')),
+    path('edc_data_manager/', include('edc_data_manager.urls')),
+    path('edc_call_manager/', include('edc_call_manager.urls')),
+    path('edc_reference/', include('edc_reference.urls')),
+
+    path('subject/', include('esr21_dashboard.urls')),
 
     path('switch_sites/', LogoutView.as_view(next_page=settings.INDEX_PAGE),
          name='switch_sites_url'),
