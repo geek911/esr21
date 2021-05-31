@@ -1,9 +1,5 @@
 """
-<<<<<<< HEAD
-ASGI config for esr21 project.
-=======
 ASGI config for asr21 project.
->>>>>>> 115f5bab974d56b8bf402fd081c3ec923bd46c57
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

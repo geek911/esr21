@@ -168,7 +168,6 @@ LANGUAGES = (
     ('en', 'English'),
 )
 
-
 TIME_ZONE = 'Africa/Gaborone'
 
 USE_I18N = True
@@ -204,3 +203,6 @@ DASHBOARD_BASE_TEMPLATES = {
 
 # edc_facility
 COUNTRY = 'botswana'
+
+PARENT_REFERENCE_MODEL1 = ''
+PARENT_REFERENCE_MODEL2 = ''
