@@ -32,6 +32,7 @@ from edc_registration.admin_site import edc_registration_admin
 from edc_call_manager.admin_site import edc_call_manager_admin
 from edc_data_manager.admin_site import edc_data_manager_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
+from esr21_prn.admin_site import esr21_prn_admin
 from esr21_subject.admin_site import esr21_subject_admin
 
 from .views import HomeView, AdministrationView
@@ -39,7 +40,7 @@ from .views import HomeView, AdministrationView
 urlpatterns = [
     path('accounts/', include('edc_base.auth.urls')),
     path('admin/', include('edc_base.auth.urls')),
-    
+
     path('admin/', edc_appointment_admin.urls),
     path('admin/', edc_calendar_admin.urls),
     path('admin/', edc_lab_admin.urls),
@@ -52,6 +53,7 @@ urlpatterns = [
     path('admin/', edc_reference_admin.urls),
 
     path('admin/', esr21_subject_admin.urls),
+    path('admin/', esr21_prn_admin.urls),
     path('admin/', admin.site.urls),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
 
@@ -60,10 +62,14 @@ urlpatterns = [
     path('admin/esr21_subject/',
          RedirectView.as_view(url='admin/esr21_subject/'),
          name='esr21_subject_models_url'),
+    path('admin/esr21_prn/',
+         RedirectView.as_view(url='admin/esr21_prn/'),
+         name='esr21_prn_models_url'),
 
     path('edc_base/', include('edc_base.urls')),
     path('edc_consent/', include('edc_consent.urls')),
     path('esr21_subject/', include('esr21_subject.urls')),
+    path('esr21_prn/', include('esr21_prn.urls')),
     path('subject/', include('esr21_dashboard.urls')),
     path('edc_device/', include('edc_device.urls')),
     path('edc_protocol/', include('edc_protocol.urls')),
@@ -71,7 +77,7 @@ urlpatterns = [
     path('edc_visit_schedule/', include('edc_visit_schedule.urls')),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
     path('admin/edc_call_manager/', edc_call_manager_admin.urls),
-    
+
     path('edc_appointment/', include('edc_appointment.urls')),
     path('edc_action_item/', include('edc_action_item.urls')),
     path('edc_calendar/', include('edc_calendar.urls')),
