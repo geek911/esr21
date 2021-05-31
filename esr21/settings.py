@@ -26,6 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 APP_NAME = 'esr21'
 SITE_ID = 40
 
+REVIEWER_SITE_ID = 1
+
 ETC_DIR = os.path.join('/etc/', APP_NAME)
 
 LOGIN_REDIRECT_URL = 'home_url'
