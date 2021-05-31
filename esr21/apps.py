@@ -16,6 +16,7 @@ from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
 from edc_timepoint.timepoint_collection import TimepointCollection
+from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT, \
     COMPLETED_PROTOCOL_VISIT, MISSED_VISIT
 
@@ -43,6 +44,12 @@ class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):
     project_name = 'AZD 1222'
     institution = 'Botswana-Harvard AIDS Institute'
+
+
+class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
+    report_datetime_allowance = -1
+    visit_models = {
+        'esr21_subject': ('subject_visit', 'esr21_subject.subjectvisit')}
 
 
 class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):

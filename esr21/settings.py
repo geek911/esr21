@@ -190,7 +190,8 @@ HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 DASHBOARD_URL_NAMES = {
     'screening_listboard_url': 'esr21_dashboard:screening_listboard_url',
     'subject_listboard_url': 'esr21_dashboard:subject_listboard_url',
-    'subject_dashboard_url': 'esr21_dashboard:subject_dashboard_url'
+    'subject_dashboard_url': 'esr21_dashboard:subject_dashboard_url',
+    'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
 }
 
 DASHBOARD_BASE_TEMPLATES = {
