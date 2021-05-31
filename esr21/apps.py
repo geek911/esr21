@@ -31,7 +31,7 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
     configurations = [
         AppointmentConfig(
             model='edc_appointment.appointment',
-            related_visit_model='flourish_caregiver.maternalvisit',
+            related_visit_model='esr21_subject.subjectvisit',
             appt_type='clinic'),
     ]
 
@@ -95,9 +95,7 @@ class EdcLocatorAppConfig(BaseEdcLocatorAppConfig):
 
 class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
     reason_field = {
-        'pre_flourish.preflourishcaregivervisit': 'reason',
-        'flourish_caregiver.maternalvisit': 'reason',
-        'flourish_child.childvisit': 'reason', }
+        'esr21_subject.subjectlvisit': 'reason'}
     create_on_reasons = [SCHEDULED, UNSCHEDULED, COMPLETED_PROTOCOL_VISIT]
     delete_on_reasons = [LOST_VISIT, MISSED_VISIT, FAILED_ELIGIBILITY]
 
