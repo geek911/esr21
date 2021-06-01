@@ -90,7 +90,7 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
 
 class EdcLocatorAppConfig(BaseEdcLocatorAppConfig):
     name = 'edc_locator'
-    reference_model = 'esr21_subject.subjectlocator'
+    reference_model = 'esr21_subject.personalcontactinfo'
 
 
 class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
