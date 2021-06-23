@@ -96,9 +96,13 @@ INSTALLED_APPS = [
     'esr21.apps.EdcVisitTrackingAppConfig',
     'esr21.apps.EdcTimepointAppConfig',
     'esr21.apps.AppConfig',
+    'bootstrap_datepicker_plus',
+    'django_countries',
 
 ]
-
+BOOTSTRAP3 = {
+    'include_jquery': True,
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -177,9 +181,9 @@ USE_I18N = True
 USE_L10N = False
 
 USE_TZ = True
-
-DATETIME_INPUT_FORMATS = ['%d/%m/%Y %H:%M']
-DATE_INPUT_FORMATS = ['%d/%m/%Y']
+USE_L10N = False
+DATETIME_INPUT_FORMATS = ['%d/%B/%Y %H:%M']
+DATE_INPUT_FORMATS = ["%d %B %Y"]
 TIME_INPUT_FORMATS = ['%H:%M']
 DATETIME_FORMAT = 'd/M/Y H:i'
 DATE_FORMAT = 'd/M/Y'
