@@ -98,7 +98,6 @@ INSTALLED_APPS = [
     'esr21.apps.EdcVisitTrackingAppConfig',
     'esr21.apps.EdcTimepointAppConfig',
     'esr21.apps.AppConfig',
-    'django_countries',
 
 ]
 BOOTSTRAP3 = {
