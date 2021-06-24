@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     'edc_call_manager.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'esr21_dashboard.apps.AppConfig',
+    'esr21_labs.apps.AppConfig',
     'esr21_prn.apps.AppConfig',
     'esr21_subject.apps.AppConfig',
     'esr21_metadata_rules.apps.AppConfig',
@@ -96,7 +97,6 @@ INSTALLED_APPS = [
     'esr21.apps.EdcVisitTrackingAppConfig',
     'esr21.apps.EdcTimepointAppConfig',
     'esr21.apps.AppConfig',
-    'bootstrap_datepicker_plus',
     'django_countries',
 
 ]
