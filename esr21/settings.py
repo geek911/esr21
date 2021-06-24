@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'edc_call_manager.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'esr21_dashboard.apps.AppConfig',
+    'esr21_labs.apps.AppConfig',
     'esr21_prn.apps.AppConfig',
     'esr21_subject.apps.AppConfig',
     'esr21_metadata_rules.apps.AppConfig',
