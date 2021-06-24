@@ -34,14 +34,14 @@ git+https://github.com/botswana-harvard/edc-subject-dashboard.git@develop#egg=ed
 git+https://github.com/botswana-harvard/edc-timepoint.git@develop#egg=edc_timepoint
 git+https://github.com/botswana-harvard/edc-visit-schedule.git@develop#egg=edc_visit_schedule
 git+https://github.com/botswana-harvard/edc-visit-tracking.git@develop#egg=edc_visit_tracking
-git+https://github.com/covid19-vaccine/esr21-subject.git@develop#egg=esr21_subject
-git+https://github.com/covid19-vaccine/esr21-prn.git@develop#egg=esr21_prn
-git+https://github.com/covid19-vaccine/esr21-subject-validation.git@develop#esr21_subject_validation
-git+https://github.com/covid19-vaccine/esr21-dashboard.git@develop#esr21_dashboard
-git+https://github.com/covid19-vaccine/esr21-visit-schedule.git@develop#esr21_visit_schedule
-git+https://github.com/covid19-vaccine/esr21-metadata-rules.git@develop#esr21_metadata_rules
-git+https://github.com/covid19-vaccine/esr21-reference.git@develop#esr21_reference
-git+https://github.com/covid19-vaccine/esr21-labs.git@develop#esr21_labs
+-e /Users/ckgathi/source/esr21-subject
+-e /Users/ckgathi/source/esr21-prn
+-e /Users/ckgathi/source/esr21-subject-validation
+-e /Users/ckgathi/source/esr21-dashboard
+-e /Users/ckgathi/source/esr21-visit-schedule
+-e /Users/ckgathi/source/esr21-metadata-rules
+-e /Users/ckgathi/source/esr21-reference
+-e /Users/ckgathi/source/esr21-labs
 django-countries
 notebook
 pandas

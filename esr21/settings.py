@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django_extensions',
+    'django_countries',
     'django_crypto_fields.apps.AppConfig',
     'edc_action_item.apps.AppConfig',
     'edc_calendar.apps.AppConfig',
