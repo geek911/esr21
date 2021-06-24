@@ -63,7 +63,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django_extensions',
+    'django_countries',
     'django_crypto_fields.apps.AppConfig',
+    'bootstrap_datepicker_plus',
     'edc_action_item.apps.AppConfig',
     'edc_calendar.apps.AppConfig',
     'edc_consent.apps.AppConfig',
@@ -96,8 +98,6 @@ INSTALLED_APPS = [
     'esr21.apps.EdcVisitTrackingAppConfig',
     'esr21.apps.EdcTimepointAppConfig',
     'esr21.apps.AppConfig',
-    'bootstrap_datepicker_plus',
-    'django_countries',
 
 ]
 BOOTSTRAP3 = {
