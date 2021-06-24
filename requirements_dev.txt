@@ -43,5 +43,5 @@ git+https://github.com/botswana-harvard/edc-visit-tracking.git@develop#egg=edc_v
 -e /Users/ckgathi/source/esr21-reference
 -e /Users/ckgathi/source/esr21-labs
 django-countries
-nootbook
+notebook
 pandas
