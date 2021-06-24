@@ -65,7 +65,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_countries',
     'django_crypto_fields.apps.AppConfig',
-    'bootstrap_datepicker_plus',
     'edc_action_item.apps.AppConfig',
     'edc_calendar.apps.AppConfig',
     'edc_consent.apps.AppConfig',
