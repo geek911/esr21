@@ -187,6 +187,8 @@ DATE_INPUT_FORMATS = ["%d %B %Y"]
 TIME_INPUT_FORMATS = ['%H:%M']
 DATETIME_FORMAT = 'd/M/Y H:i'
 DATE_FORMAT = 'd/M/Y'
+SHORT_DATE_FORMAT = 'd/M/Y'
+SHORT_DATETIME_FORMAT = 'd/M/Y H:i'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
