@@ -13,6 +13,7 @@ from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
+from edc_senaite_interface.apps import AppConfig as BaseEdcSenaiteInterfaceAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
 from edc_timepoint.timepoint_collection import TimepointCollection
@@ -98,3 +99,20 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
         'esr21_subject.subjectvisit': 'reason'}
     create_on_reasons = [SCHEDULED, UNSCHEDULED, COMPLETED_PROTOCOL_VISIT]
     delete_on_reasons = [LOST_VISIT, MISSED_VISIT, FAILED_ELIGIBILITY]
+
+
+class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
+    host = "https://senaite-server.bhp.org.bw"
+    client = "AZD1222"
+    sample_type_match = {'humoral_immunogenicity': 'Serum',
+                         'sars_cov2_serology': 'Serum',
+                         'sars_cov2_pcr': 'Whole Blood EDTA',
+                         'hematology': 'Whole Blood EDTA'}
+    container_type_match = {'humoral_immunogenicity': 'Cryogenic vial',
+                            'sars_cov2_serology': 'Cryogenic vial',
+                            'sars_cov2_pcr': 'EDTA Tube',
+                            'hematology': 'EDTA Tube'}
+    template_match = {'humoral_immunogenicity': 'Serum storage',
+                      'sars_cov2_serology': 'SARS-COV-2 Serology',
+                      'sars_cov2_pcr': 'SARS-COV-2 PCR',
+                      'hematology': 'CBC'}

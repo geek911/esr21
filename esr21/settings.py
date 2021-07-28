@@ -97,6 +97,7 @@ INSTALLED_APPS = [
     'esr21.apps.EdcProtocolAppConfig',
     'esr21.apps.EdcVisitTrackingAppConfig',
     'esr21.apps.EdcTimepointAppConfig',
+    'esr21.apps.EdcSenaiteInterfaceAppConfig',
     'esr21.apps.AppConfig',
 
 ]
