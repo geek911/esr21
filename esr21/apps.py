@@ -20,13 +20,13 @@ from edc_timepoint.timepoint_collection import TimepointCollection
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT, \
     COMPLETED_PROTOCOL_VISIT, MISSED_VISIT
+from edc_senaite_interface.apps import AppConfig as BaseEdcSenaiteInterfaceAppConfig
 
 from esr21_dashboard.patterns import subject_identifier
 
 
 class AppConfig(DjangoAppConfig):
     name = 'esr21'
-
 
 class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
     configurations = [
