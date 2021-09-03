@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_extensions',
     'django_countries',
+    'crispy_forms',
     'django_crypto_fields.apps.AppConfig',
     'edc_action_item.apps.AppConfig',
     'edc_calendar.apps.AppConfig',
@@ -90,6 +91,7 @@ INSTALLED_APPS = [
     'edc_visit_schedule.apps.AppConfig',
     'edc_call_manager.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
+    'esr21_export.apps.AppConfig',
     'esr21_dashboard.apps.AppConfig',
     'esr21_labs.apps.AppConfig',
     'esr21_prn.apps.AppConfig',
@@ -215,6 +217,7 @@ DASHBOARD_URL_NAMES = {
     'subject_listboard_url': 'esr21_dashboard:subject_listboard_url',
     'subject_dashboard_url': 'esr21_dashboard:subject_dashboard_url',
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
+    'export_listboard_url': 'esr21_export:export_listboard_url',
 }
 
 DASHBOARD_BASE_TEMPLATES = {
@@ -223,6 +226,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'subject_dashboard_template': 'esr21_dashboard/subject/dashboard.html',
     'screening_listboard_template': 'esr21_dashboard/screening/listboard.html',
     'subject_listboard_template': 'esr21_dashboard/subject/listboard.html',
+    'export_listboard_template': 'esr21_export/listboard.html',
 }
 
 # edc_facility
