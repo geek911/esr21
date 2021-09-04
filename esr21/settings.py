@@ -37,20 +37,20 @@ INDEX_PAGE = 'esr21.bhp.org.bw:8000'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'plb+98b-_xium0!e5vk8m+!($)7mu*u3^nos8c3(=!90v2+kx6'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['localhost', 'esr21.bhp.org.bw', '127.0.0.1']
-
 CONFIG_FILE = f'{APP_NAME}.ini'
 
 CONFIG_PATH = os.path.join(ETC_DIR, CONFIG_FILE)
 sys.stdout.write(style.SUCCESS(f'  * Reading config from {CONFIG_FILE}\n'))
 config = configparser.ConfigParser()
 config.read(CONFIG_PATH)
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = config['django'].get('secret_key', 'blah$blah$blah')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = ['localhost', 'esr21.bhp.org.bw', '127.0.0.1']
 
 # email configurations
 EMAIL_BACKEND = config['email_conf'].get('email_backend')
@@ -73,12 +73,13 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_extensions',
     'django_countries',
+    'rest_framework',
+    'rest_framework.authtoken',
     'django_crypto_fields.apps.AppConfig',
     'edc_action_item.apps.AppConfig',
     'edc_calendar.apps.AppConfig',
     'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
-    'edc_device.apps.AppConfig',
     'edc_identifier.apps.AppConfig',
     'edc_lab.apps.AppConfig',
     'edc_model_admin.apps.AppConfig',
@@ -106,6 +107,9 @@ INSTALLED_APPS = [
     'esr21.apps.EdcProtocolAppConfig',
     'esr21.apps.EdcVisitTrackingAppConfig',
     'esr21.apps.EdcTimepointAppConfig',
+    'esr21.apps.EdcDeviceAppConfig',
+    'esr21.apps.EdcSyncAppConfig',
+    'esr21.apps.EdcSyncFilesAppConfig',
     'esr21.apps.EdcSenaiteInterfaceAppConfig',
     'esr21.apps.AppConfig',
 
@@ -230,3 +234,12 @@ COUNTRY = 'botswana'
 
 PARENT_REFERENCE_MODEL1 = ''
 PARENT_REFERENCE_MODEL2 = ''
+
+DEVICE_ID = config['edc_device'].get('device_id', '99')
+DEVICE_ROLE = config['edc_device'].get('role')
+
+EDC_SYNC_SERVER_IP = config['edc_sync'].get('server_ip')
+EDC_SYNC_FILES_REMOTE_HOST = config['edc_sync_files'].get('remote_host')
+EDC_SYNC_FILES_USER = config['edc_sync_files'].get('sync_user')
+EDC_SYNC_FILES_USB_VOLUME = config['edc_sync_files'].get('usb_volume')
+
