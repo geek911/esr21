@@ -33,9 +33,11 @@ from edc_reference.admin_site import edc_reference_admin
 from edc_registration.admin_site import edc_registration_admin
 from edc_sync.admin_site import edc_sync_admin
 from edc_sync_files.admin_site import edc_sync_files_admin
+from edc_senaite_interface.admin_site import edc_senaite_interface_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 from esr21_prn.admin_site import esr21_prn_admin
 from esr21_subject.admin_site import esr21_subject_admin
+from esr21_export.admin_site import esr21_export_admin
 
 from .views import HomeView, AdministrationView
 
@@ -46,6 +48,7 @@ urlpatterns = [
     path('admin/', edc_appointment_admin.urls),
     path('admin/', edc_calendar_admin.urls),
     path('admin/', edc_lab_admin.urls),
+    path('admin/', edc_data_manager_admin.urls),
     path('admin/', edc_data_manager_admin.urls),
     path('admin/', edc_locator_admin.urls),
     path('admin/', edc_action_item_admin.urls),
@@ -58,6 +61,7 @@ urlpatterns = [
 
     path('admin/', esr21_subject_admin.urls),
     path('admin/', esr21_prn_admin.urls),
+    path('admin/', esr21_export_admin.urls),
     path('admin/', admin.site.urls),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
 
@@ -74,6 +78,7 @@ urlpatterns = [
     path('edc_consent/', include('edc_consent.urls')),
     path('esr21_subject/', include('esr21_subject.urls')),
     path('esr21_prn/', include('esr21_prn.urls')),
+    path('esr21_export/', include('esr21_export.urls')),
     path('subject/', include('esr21_dashboard.urls')),
     path('edc_device/', include('edc_device.urls')),
     path('edc_protocol/', include('edc_protocol.urls')),

@@ -17,6 +17,13 @@ esr21.append_item(
         fa_icon='far fa-user-circle',
         url_name=settings.DASHBOARD_URL_NAMES.get('subject_listboard_url')))
 
+esr21.append_item(
+    NavbarItem(
+        name='export_data',
+        label='Export Data',
+        fa_icon='fa fa-database',
+        url_name='esr21_export:home_url'))
+
 # esr21.append_item(
     # NavbarItem(name='synchronization',
                # label='Data Synchronization',
