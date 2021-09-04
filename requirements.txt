@@ -39,6 +39,8 @@ git+https://github.com/botswana-harvard/edc-visit-tracking.git@develop#egg=edc_v
 git+https://github.com/covid19-vaccine/esr21-subject.git@develop#egg=esr21_subject
 git+https://github.com/covid19-vaccine/esr21-prn.git@develop#egg=esr21_prn
 git+https://github.com/botswana-harvard/edc-rest.git@develop#egg=edc-rest
+git+https://github.com/botswana-harvard/edc-sync.git@develop#egg=edc-sync
+git+https://github.com/botswana-harvard/edc-sync-files.git@develop#egg=edc-sync-files
 git+https://github.com/covid19-vaccine/esr21-subject-validation.git@develop#esr21_subject_validation
 git+https://github.com/covid19-vaccine/esr21-dashboard.git@develop#esr21_dashboard
 git+https://github.com/covid19-vaccine/esr21-export.git@develop#esr21_export
