@@ -54,3 +54,4 @@ pandas
 django-crispy-forms
 xlwt
 django-q
+mysqlclient
