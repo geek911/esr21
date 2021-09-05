@@ -231,6 +231,8 @@ DASHBOARD_BASE_TEMPLATES = {
     'screening_listboard_template': 'esr21_dashboard/screening/listboard.html',
     'subject_listboard_template': 'esr21_dashboard/subject/listboard.html',
     'export_listboard_template': 'esr21_export/listboard.html',
+    'data_manager_listboard_template': 'edc_data_manager/listboard.html',
+
 }
 
 # edc_facility
