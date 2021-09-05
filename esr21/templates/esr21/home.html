@@ -1,4 +1,4 @@
-{% extends 'vaccine/base.html' %}
+{% extends 'esr21/base.html' %}
 
 
 {% block extra-styles %}
@@ -52,21 +52,25 @@
 </div> <!-- card.// -->
 </aside> <!-- col.// -->
 
-<aside class="col-sm-4">
+<!-- <aside class="col-sm-4">
 <div class="card">
 	<article class="card-group-item">
-		<header class="card-header"><h6 class="title">Enrollments </h6></header>
+		<header class="card-header"><h6 class="title">Links </h6></header>
 		<div class="filter-content">
 			<div class="list-group list-group-flush">
-			  <a href="" class="list-group-item">All <span class="float-right badge badge-light round"></span> </a>
-			  <a href="" class="list-group-item">Total patients enrolled last week <span class="float-right badge badge-light round">{{ past_week }}</span> </a>
-			  <a href="" class="list-group-item">Total patients enrolled in intervention arm<span class="float-right badge badge-light round">{{ intervention_enrolled }}</span></a>
-			  <a href="" class="list-group-item">Total enrolled in enhanced usual care arm <span class="float-right badge badge-light round">{{ enhanced_care_enrolled }}</span></a>
-			</div>  <!-- list-group .// -->
+			  <a href="" class="list-group-item">Data Action items </a>
+			  <a href="#" class="list-group-item">ODK Documentation</a>
+			  <a href="" class="list-group-item">EDC SMS</a>
+			  <a href="" class="list-group-item">EDC Calender</a>
+			  <a href="#" class="list-group-item">Verify consent</a>
+			</div>  list-group .//
 		</div>
-	</article> <!-- card-group-item.// -->
-</div> <!-- card.// -->
-</aside> <!-- col.// -->
+	</article> card-group-item.//
+</div> card.//
+</aside> col.// -->
+
+<div class="row">
+
 
 <aside class="col-sm-4">
 <div class="card">
@@ -75,14 +79,33 @@
 		<div class="filter-content">
 			<div class="list-group list-group-flush">
 			  <a href="{% url data_manager_listboard_url %}" class="list-group-item">Data Action items </a>
-			  <a href="#" class="list-group-item">ODK Documentation</a>
-			  <a href="{% url contact_listboard_url %}" class="list-group-item">EDC SMS</a>
-			  <a href="{% url 'edc_calendar:home_url' %}" class="list-group-item">EDC Calender</a>
-			  <a href="#" class="list-group-item">Verify consent</a>
+			  <a href="#" class="list-group-item">Source Data Copies: Consents & National Identity</a>
+			  <a href="{% url 'edc_calendar:home_url' %}" class="list-group-item">EDC Calendar</a>
+			  <a href="#" class="list-group-item">Data Export</a>
 			</div>  <!-- list-group .// -->
 		</div>
 	</article> <!-- card-group-item.// -->
 </div> <!-- card.// -->
 </aside> <!-- col.// -->
+
+
+<aside class="col-sm-4">
+<div class="card">
+	<article class="card-group-item">
+		<header class="card-header"><h6 class="title">Lab stats </h6></header>
+		<div class="filter-content">
+			<div class="list-group list-group-flush">
+			  <a href="#" class="list-group-item">Resulted: ESR21 <span class="float-right badge badge-light round"></span>0<span class="float-right badge badge-light round"></span> </a>
+			  <a href="#" class="list-group-item">Pending results: ESR21  <span class="float-right badge badge-light round"></span>0<span class="float-right badge badge-light round"></span></a>
+			  <a href="#" class="list-group-item">Stored samples: ESR21 <span class="float-right badge badge-light round"></span>0<span class="float-right badge badge-light round"></span></a>
+			  <a href="#" class="list-group-item">Shipped samples: ESR21 <span class="float-right badge badge-light round"></span>0<span class="float-right badge badge-light round"></span></a>
+			</div>  <!-- list-group .// -->
+		</div>
+	</article> <!-- card-group-item.// -->
+</div> <!-- card.// -->
+</aside> <!-- col.// -->
+
+
+</div>
 
 {% endblock main %}

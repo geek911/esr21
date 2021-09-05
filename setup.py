@@ -11,18 +11,18 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name='vaccine',
-    version='0.1.0',
+    name='esr21',
+    version='0.1.1',
     author=u'Software Engineering & Data Management',
     author_email='se-dmc@bhp.org.bw',
     packages=find_packages(),
     include_package_data=True,
-    url='https://github.com/covid19-vaccine/vaccine',
+    url='https://github.com/covid19-vaccine/esr21',
     license='GPL license, see LICENSE',
-    description='Vaccine',
+    description='ESR21',
     long_description=README,
     zip_safe=False,
-    keywords='django vaccine',
+    keywords='django esr21',
     install_requires=[
         'django-cors-headers',
         'django-rest-framework'
