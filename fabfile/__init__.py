@@ -9,4 +9,4 @@ if 'fab' in sys.argv[0]:
         # load_keys_esr21, check_repo_status, install_dependency_specific_tag,
         # install_dependency_not_in_requirements)
 
-    load_base_env()
+    # load_base_env()
