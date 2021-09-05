@@ -51,3 +51,6 @@ git+https://github.com/covid19-vaccine/esr21-labs.git@develop#esr21_labs
 django-countries
 notebook
 pandas
+django-crispy-forms
+xlwt
+django-q
