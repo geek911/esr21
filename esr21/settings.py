@@ -47,8 +47,10 @@ config.read(CONFIG_PATH)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config['django'].get('secret_key', 'blah$blah$blah')
 
+KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'esr21.bhp.org.bw', '127.0.0.1']
 
@@ -153,12 +155,24 @@ TEMPLATES = [
 WSGI_APPLICATION = 'esr21.wsgi.application'
 
 # Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+mysql_config = configparser.ConfigParser()
+mysql_config.read(os.path.join(ETC_DIR, 'mysql.ini'))
+
+HOST = mysql_config['mysql']['host']
+DB_USER = mysql_config['mysql']['user']
+DB_PASSWORD = mysql_config['mysql']['password']
+DB_NAME = mysql_config['mysql']['database']
+PORT = mysql_config['mysql']['port']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': HOST,  # Or an IP Address that your DB is hosted on
+        'PORT': PORT,
     }
 }
 
