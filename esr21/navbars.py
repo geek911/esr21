@@ -24,10 +24,10 @@ esr21.append_item(
         fa_icon='fa fa-database',
         url_name='esr21_export:home_url'))
 
-# esr21.append_item(
-    # NavbarItem(name='synchronization',
-               # label='Data Synchronization',
-               # fa_icon='fa-exchange',
-               # url_name='edc_sync:home_url'))
+esr21.append_item(
+    NavbarItem(name='synchronization',
+               label='Data Synchronization',
+               fa_icon='fa-exchange',
+               url_name='edc_sync:home_url'))
 
 site_navbars.register(esr21)
