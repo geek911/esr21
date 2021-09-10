@@ -56,6 +56,7 @@ urlpatterns = [
     path('admin/', edc_metadata_admin.urls),
     path('admin/', edc_registration_admin.urls),
     path('admin/', edc_reference_admin.urls),
+    path('admin/', edc_senaite_interface_admin.urls),
     path('admin/', edc_sync_admin.urls),
     path('admin/', edc_sync_files_admin.urls),
 
@@ -84,6 +85,7 @@ urlpatterns = [
     path('edc_protocol/', include('edc_protocol.urls')),
     path('edc_subject_dashboard/', include('edc_subject_dashboard.urls')),
     path('edc_visit_schedule/', include('edc_visit_schedule.urls')),
+    path('edc_senaite_interface/', include('edc_senaite_interface.urls')),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
     path('admin/edc_call_manager/', edc_call_manager_admin.urls),
 

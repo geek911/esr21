@@ -114,7 +114,7 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 
 
 class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
-    host = "https://senaite-server.bhp.org.bw"
+    host = "https://senaite-server.bhp.org.bw/"
     client = "AZD1222"
     sample_type_match = {'humoral_immunogenicity': 'Serum',
                          'sars_cov2_serology': 'Serum',
