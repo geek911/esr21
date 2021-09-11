@@ -16,6 +16,7 @@ git+https://github.com/botswana-harvard/edc-fieldsets.git@develop#egg=edc_fields
 git+https://github.com/botswana-harvard/edc-form-validators.git@develop#egg=edc_form_validators
 git+https://github.com/botswana-harvard/edc-identifier.git@develop#egg=edc_identifier
 git+https://github.com/botswana-harvard/edc-lab.git@develop#egg=edc_lab
+git+https://github.com/botswana-harvard/edc-lab-dashboard.git@develop#egg=edc_lab_dashboard
 git+https://github.com/botswana-harvard/edc-label.git@develop#egg=edc_label
 git+https://github.com/botswana-harvard/edc-locator.git@develop#egg=edc_locator
 git+https://github.com/botswana-harvard/edc-list-data.git@develop#egg=edc_list_data
