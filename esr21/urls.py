@@ -75,6 +75,10 @@ urlpatterns = [
          RedirectView.as_view(url='admin/esr21_prn/'),
          name='esr21_prn_models_url'),
 
+    path('edc_lab/', include('edc_lab.urls')),
+    path('edc_lab_dashboard/', include('edc_lab_dashboard.urls')),
+    path('edc_label/', include('edc_label.urls')),
+
     path('edc_base/', include('edc_base.urls')),
     path('edc_consent/', include('edc_consent.urls')),
     path('esr21_subject/', include('esr21_subject.urls')),
