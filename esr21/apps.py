@@ -56,7 +56,7 @@ class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
 
 
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):
-    project_name = 'BHP152'
+    project_name = 'BHP150'
     institution = 'Botswana-Harvard AIDS Institute'
 
 
@@ -81,9 +81,9 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
-    protocol = 'BHP152'
-    protocol_name = 'BHP152 | ADZ 1222 - ESR-21-21311'
-    protocol_number = '152'
+    protocol = 'BHP150'
+    protocol_name = 'BHP150 | ADZ 1222 - ESR-21-21311'
+    protocol_number = '150'
     protocol_title = ''
     study_open_datetime = datetime(
         2021, 4, 1, 0, 0, 0, tzinfo=gettz('UTC'))
@@ -121,7 +121,7 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 
 class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
     host = "https://senaite-server.bhp.org.bw/"
-    client = "BHP152 | AZD1222"
+    client = "BHP150 | AZD1222"
     sample_type_match = {'humoral_immunogenicity': 'Serum',
                          'sars_cov2_serology': 'Serum',
                          'sars_cov2_pcr': 'Whole Blood EDTA',
