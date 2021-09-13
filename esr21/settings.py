@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_countries',
     'rest_framework',
+    'django_js_reverse',
     'rest_framework.authtoken',
     'crispy_forms',
     'django_crypto_fields.apps.AppConfig',
@@ -263,9 +264,6 @@ DASHBOARD_BASE_TEMPLATES = {
 
 # edc_facility
 COUNTRY = 'botswana'
-
-DEVICE_ROLE = 'CentralServer'
-DEVICE_ID = '99'
 
 PARENT_REFERENCE_MODEL1 = ''
 PARENT_REFERENCE_MODEL2 = ''
