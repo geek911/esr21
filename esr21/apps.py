@@ -19,6 +19,7 @@ from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_senaite_interface.apps import AppConfig as BaseEdcSenaiteInterfaceAppConfig
 from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
+from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
 from edc_sync_files.apps import AppConfig as BaseEdcSyncFilesAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
@@ -55,7 +56,7 @@ class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
 
 
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):
-    project_name = 'AZD 1222'
+    project_name = 'BHP150'
     institution = 'Botswana-Harvard AIDS Institute'
 
 
@@ -63,6 +64,11 @@ class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
     report_datetime_allowance = -1
     visit_models = {
         'esr21_subject': ('subject_visit', 'esr21_subject.subjectvisit'), }
+
+
+class EdcLabAppConfig(BaseEdcLabAppConfig):
+    requisition_model = 'esr21_subject.subjectrequisition'
+    result_model = 'edc_lab.result'
 
 
 class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
@@ -75,9 +81,9 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
-    protocol = 'AZD1222'
-    protocol_name = 'ADZ 1222 - ESR-21-21311'
-    protocol_number = '1222'
+    protocol = 'BHP150'
+    protocol_name = 'BHP150 | ADZ 1222 - ESR-21-21311'
+    protocol_number = '150'
     protocol_title = ''
     study_open_datetime = datetime(
         2021, 4, 1, 0, 0, 0, tzinfo=gettz('UTC'))
@@ -115,7 +121,7 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 
 class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
     host = "https://senaite-server.bhp.org.bw/"
-    client = "AZD1222"
+    client = "BHP150 | AZD1222"
     sample_type_match = {'humoral_immunogenicity': 'Serum',
                          'sars_cov2_serology': 'Serum',
                          'sars_cov2_pcr': 'Whole Blood EDTA',
