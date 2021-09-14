@@ -47,10 +47,12 @@ config.read(CONFIG_PATH)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config['django'].get('secret_key', 'blah$blah$blah')
 
-# KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
+KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
+
+LIVE_SYSTEM = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'esr21.bhp.org.bw', '127.0.0.1']
 
@@ -76,6 +78,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_countries',
     'rest_framework',
+    'django_js_reverse',
     'rest_framework.authtoken',
     'crispy_forms',
     'django_crypto_fields.apps.AppConfig',
@@ -168,25 +171,23 @@ DB_PASSWORD = mysql_config['mysql']['password']
 DB_NAME = mysql_config['mysql']['database']
 PORT = mysql_config['mysql']['port']
 
+DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': DB_NAME,
+         'USER': DB_USER,
+         'PASSWORD': DB_PASSWORD,
+         'HOST': HOST,  # Or an IP Address that your DB is hosted on
+         'PORT': PORT,
+     }
+ }
+
 # DATABASES = {
     # 'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': DB_NAME,
-        # 'USER': DB_USER,
-        # 'PASSWORD': DB_PASSWORD,
-        # 'HOST': HOST,  # Or an IP Address that your DB is hosted on
-        # 'PORT': PORT,
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
 # }
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -250,6 +251,8 @@ DASHBOARD_URL_NAMES = {
     'export_listboard_url': 'esr21_export:export_listboard_url',
 }
 
+LAB_DASHBOARD_BASE_TEMPLATES = {}
+
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'esr21/base.html',
     'dashboard_base_template': 'esr21/base.html',
@@ -263,9 +266,6 @@ DASHBOARD_BASE_TEMPLATES = {
 
 # edc_facility
 COUNTRY = 'botswana'
-
-DEVICE_ROLE = 'CentralServer'
-DEVICE_ID = '99'
 
 PARENT_REFERENCE_MODEL1 = ''
 PARENT_REFERENCE_MODEL2 = ''
