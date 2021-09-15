@@ -124,16 +124,19 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
     client = "BHP150 | AZD1222"
     sample_type_match = {'humoral_immunogenicity': 'Serum',
                          'sars_cov2_serology': 'Serum',
-                         'sars_cov2_pcr': 'Whole Blood EDTA',
-                         'hematology': 'Whole Blood EDTA'}
+                         'sars_cov2_pcr': 'Swab',
+                         'hematology': 'Whole Blood EDTA',
+                         'urine_hcg': 'Urine'}
     container_type_match = {'humoral_immunogenicity': 'Cryogenic vial',
                             'sars_cov2_serology': 'Cryogenic vial',
-                            'sars_cov2_pcr': 'EDTA Tube',
-                            'hematology': 'EDTA Tube'}
+                            'sars_cov2_pcr': 'Cryogenic Vial',
+                            'hematology': 'EDTA Tube',
+                            'urine_hcg': 'Urine Cup'}
     template_match = {'humoral_immunogenicity': 'Serum storage',
                       'sars_cov2_serology': 'SARS-COV-2 Serology',
                       'sars_cov2_pcr': 'SARS-COV-2 PCR',
-                      'hematology': 'CBC'}
+                      'hematology': 'CBC',
+                      'urine_hcg': 'Urine HCG'}
 
 
 class EdcDeviceAppConfig(BaseEdcDeviceAppConfig):
