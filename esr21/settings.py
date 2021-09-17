@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from django.conf import settings
 import sys
 
 import configparser
@@ -88,7 +89,6 @@ INSTALLED_APPS = [
     'edc_dashboard.apps.AppConfig',
     'edc_identifier.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
-    'edc_label.apps.AppConfig',
     'edc_model_admin.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'edc_prn.apps.AppConfig',
@@ -117,6 +117,7 @@ INSTALLED_APPS = [
     'esr21.apps.EdcVisitTrackingAppConfig',
     'esr21.apps.EdcTimepointAppConfig',
     'esr21.apps.EdcDeviceAppConfig',
+    'esr21.apps.EdcLabelAppConfig',
     'esr21.apps.EdcSyncAppConfig',
     'esr21.apps.EdcSyncFilesAppConfig',
     'esr21.apps.EdcSenaiteInterfaceAppConfig',
@@ -241,6 +242,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'esr21', 'static')
 
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
+
+CUPS_SERVERS = 'localhost'
+LABEL_PRINTER = 'esr21_printer'
+LABEL_TEMPLATE_FOLDER = os.path.join(
+        settings.STATIC_ROOT, 'edc_label', 'label_templates')
 
 # dashboards
 DASHBOARD_URL_NAMES = {
