@@ -45,11 +45,13 @@ git+https://github.com/botswana-harvard/edc-sync-files.git@develop#egg=edc-sync-
 git+https://github.com/covid19-vaccine/esr21-subject-validation.git@develop#esr21_subject_validation
 git+https://github.com/covid19-vaccine/esr21-dashboard.git@develop#esr21_dashboard
 git+https://github.com/covid19-vaccine/esr21-export.git@develop#esr21_export
+git@github.com:covid19-vaccine/esr21-follow.git@develop#esr21_follow
 git+https://github.com/covid19-vaccine/esr21-visit-schedule.git@develop#esr21_visit_schedule
 git+https://github.com/covid19-vaccine/esr21-metadata-rules.git@develop#esr21_metadata_rules
 git+https://github.com/covid19-vaccine/esr21-reference.git@develop#esr21_reference
 git+https://github.com/covid19-vaccine/esr21-labs.git@develop#esr21_labs
 django-countries
+django-multiselectfield
 notebook
 pandas
 django-crispy-forms
