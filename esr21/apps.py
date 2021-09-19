@@ -40,6 +40,22 @@ config.read(os.path.join(settings.ETC_DIR,
 
 class AppConfig(DjangoAppConfig):
     name = 'esr21'
+    
+    
+class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
+    identifier_pattern = subject_identifier
+    extra_assignee_choices = {
+        'azd_clinic': [
+            ('azd_clinic', 'AZD Clinic Coordinators'),
+            ['eshava@bhp.org.bw', 'gaolathet@gmail.com', 'tphindela@bhp.org.bw']],
+        'azd_ras': [
+            ('azd_ras', 'AZD RAs'),
+            ['basadint@gmail.com', 'carolinemazongo2000@yahoo.com', 'dickskea@yahoo.com',
+             'galebutswei@gmail.com']],
+        'se_dmc': [
+            ('se_dmc', 'SE & DMC'),
+            ['adiphoko@bhp.org.bw', 'ckgathi@bhp.org.bw', 'imosweu@bhp.org.bw',
+             'mmotlhanka@bhp.org.bw', 'mchawawa@bhp.org.bw', 'nmunatsi@bhp.org.bw']]}
 
 
 class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
@@ -49,11 +65,6 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
             related_visit_model='esr21_subject.subjectvisit',
             appt_type='clinic'),
     ]
-
-
-class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
-    identifier_pattern = subject_identifier
-    extra_assignee_choices = {}
 
 
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):
