@@ -48,7 +48,7 @@ config.read(CONFIG_PATH)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config['django'].get('secret_key', 'blah$blah$blah')
 
-KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
+# KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 
 LIVE_SYSTEM = True
 
@@ -98,6 +98,7 @@ INSTALLED_APPS = [
     'edc_visit_schedule.apps.AppConfig',
     'edc_call_manager.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
+    'esr21_follow.apps.AppConfig',
     'esr21_export.apps.AppConfig',
     'esr21_dashboard.apps.AppConfig',
     'esr21_labs.apps.AppConfig',
@@ -184,10 +185,10 @@ DATABASES = {
  }
 
 # DATABASES = {
-    # 'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
 # }
 
 # Password validation
@@ -255,6 +256,7 @@ DASHBOARD_URL_NAMES = {
     'subject_dashboard_url': 'esr21_dashboard:subject_dashboard_url',
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'export_listboard_url': 'esr21_export:export_listboard_url',
+    'esr21_follow_listboard_url': 'esr21_follow:esr21_follow_listboard_url',
 }
 
 LAB_DASHBOARD_BASE_TEMPLATES = {}
@@ -267,6 +269,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'subject_listboard_template': 'esr21_dashboard/subject/listboard.html',
     'export_listboard_template': 'esr21_export/listboard.html',
     'data_manager_listboard_template': 'edc_data_manager/listboard.html',
+    'esr21_follow_listboard_template': 'esr21_follow/follow_listboard.html',
 
 }
 
