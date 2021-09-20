@@ -53,6 +53,8 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
 
 class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
     identifier_pattern = subject_identifier
+    assianable_users_note = True
+    email_issue_notification = True
     extra_assignee_choices = {
         'azd_clinic': [
             ('azd_clinic', 'AZD Clinic Coordinators'),

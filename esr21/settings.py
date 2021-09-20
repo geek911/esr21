@@ -48,7 +48,7 @@ config.read(CONFIG_PATH)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config['django'].get('secret_key', 'blah$blah$blah')
 
-# KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
+KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 
 LIVE_SYSTEM = True
 
@@ -257,6 +257,7 @@ DASHBOARD_URL_NAMES = {
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'export_listboard_url': 'esr21_export:export_listboard_url',
     'esr21_follow_listboard_url': 'esr21_follow:esr21_follow_listboard_url',
+    'esr21_follow_appt_listboard_url': 'esr21_follow:esr21_follow_appt_listboard_url',
 }
 
 LAB_DASHBOARD_BASE_TEMPLATES = {}
@@ -270,6 +271,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'export_listboard_template': 'esr21_export/listboard.html',
     'data_manager_listboard_template': 'edc_data_manager/listboard.html',
     'esr21_follow_listboard_template': 'esr21_follow/follow_listboard.html',
+    'esr21_follow_appt_listboard_template': 'esr21_follow/appointments_windows_listboards.html',
 
 }
 
