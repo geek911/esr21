@@ -55,3 +55,4 @@ pandas
 django-crispy-forms
 xlwt
 django-q
+django-session-timeout
