@@ -14,6 +14,7 @@ from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_data_manager.apps import AppConfig as BaseEdcDataManagerAppConfig
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
+from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
@@ -52,6 +53,8 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
 
 class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
     identifier_pattern = subject_identifier
+    assianable_users_note = True
+    email_issue_notification = True
     extra_assignee_choices = {
         'azd_clinic': [
             ('azd_clinic', 'AZD Clinic Coordinators'),
@@ -154,6 +157,11 @@ class EdcDeviceAppConfig(BaseEdcDeviceAppConfig):
     use_settings = True
     device_id = settings.DEVICE_ID
     device_role = settings.DEVICE_ROLE
+
+
+class EdcLabelAppConfig(BaseEdcLabelAppConfig):
+    template_folder = os.path.join(
+        settings.STATIC_ROOT, 'esr21', 'label_templates')
 
 
 class EdcSyncAppConfig(BaseEdcSyncAppConfig):

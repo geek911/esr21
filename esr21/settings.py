@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from django.conf import settings
 import sys
 
 import configparser
@@ -46,7 +47,6 @@ config.read(CONFIG_PATH)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config['django'].get('secret_key', 'blah$blah$blah')
-
 KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 
 LIVE_SYSTEM = True
@@ -65,7 +65,7 @@ EMAIL_HOST_USER = config['email_conf'].get('email_user')
 EMAIL_HOST_PASSWORD = config['email_conf'].get('email_host_pwd')
 DEFAULT_FROM_EMAIL = config['email_conf'].get('email_user')
 
-# Application definition
+SESSION_EXPIRE_SECONDS = 120 
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -88,7 +88,6 @@ INSTALLED_APPS = [
     'edc_dashboard.apps.AppConfig',
     'edc_identifier.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
-    'edc_label.apps.AppConfig',
     'edc_model_admin.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'edc_prn.apps.AppConfig',
@@ -98,6 +97,7 @@ INSTALLED_APPS = [
     'edc_visit_schedule.apps.AppConfig',
     'edc_call_manager.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
+    'esr21_follow.apps.AppConfig',
     'esr21_export.apps.AppConfig',
     'esr21_dashboard.apps.AppConfig',
     'esr21_labs.apps.AppConfig',
@@ -117,10 +117,11 @@ INSTALLED_APPS = [
     'esr21.apps.EdcVisitTrackingAppConfig',
     'esr21.apps.EdcTimepointAppConfig',
     'esr21.apps.EdcDeviceAppConfig',
+    'esr21.apps.EdcLabelAppConfig',
     'esr21.apps.EdcSyncAppConfig',
     'esr21.apps.EdcSyncFilesAppConfig',
     'esr21.apps.EdcSenaiteInterfaceAppConfig',
-    'esr21.apps.AppConfig',
+    'esr21.apps.AppConfig', 
 
 ]
 BOOTSTRAP3 = {
@@ -138,6 +139,9 @@ MIDDLEWARE = [
     'edc_dashboard.middleware.DashboardMiddleware',
     'edc_subject_dashboard.middleware.DashboardMiddleware',
     'edc_lab_dashboard.middleware.DashboardMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'esr21.urls'
@@ -183,10 +187,10 @@ DATABASES = {
  }
 
 # DATABASES = {
-    # 'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
 # }
 
 # Password validation
@@ -242,6 +246,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'esr21', 'static')
 
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 
+CUPS_SERVERS = 'localhost'
+LABEL_PRINTER = 'esr21_printer'
+LABEL_TEMPLATE_FOLDER = os.path.join(
+        settings.STATIC_ROOT, 'edc_label', 'label_templates')
+
 # dashboards
 DASHBOARD_URL_NAMES = {
     'screening_listboard_url': 'esr21_dashboard:screening_listboard_url',
@@ -249,6 +258,8 @@ DASHBOARD_URL_NAMES = {
     'subject_dashboard_url': 'esr21_dashboard:subject_dashboard_url',
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'export_listboard_url': 'esr21_export:export_listboard_url',
+    'esr21_follow_listboard_url': 'esr21_follow:esr21_follow_listboard_url',
+    'esr21_follow_appt_listboard_url': 'esr21_follow:esr21_follow_appt_listboard_url',
 }
 
 LAB_DASHBOARD_BASE_TEMPLATES = {}
@@ -261,6 +272,8 @@ DASHBOARD_BASE_TEMPLATES = {
     'subject_listboard_template': 'esr21_dashboard/subject/listboard.html',
     'export_listboard_template': 'esr21_export/listboard.html',
     'data_manager_listboard_template': 'edc_data_manager/listboard.html',
+    'esr21_follow_listboard_template': 'esr21_follow/follow_listboard.html',
+    'esr21_follow_appt_listboard_template': 'esr21_follow/appointments_windows_listboards.html',
 
 }
 
@@ -277,4 +290,3 @@ EDC_SYNC_SERVER_IP = config['edc_sync'].get('server_ip')
 EDC_SYNC_FILES_REMOTE_HOST = config['edc_sync_files'].get('remote_host')
 EDC_SYNC_FILES_USER = config['edc_sync_files'].get('sync_user')
 EDC_SYNC_FILES_USB_VOLUME = config['edc_sync_files'].get('usb_volume')
-
