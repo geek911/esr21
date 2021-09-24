@@ -53,6 +53,7 @@ django-countries
 notebook
 pandas
 django-crispy-forms
+django-multiselectfield
 xlwt
 django-q
 django-session-timeout
