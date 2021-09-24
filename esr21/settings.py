@@ -48,7 +48,7 @@ config.read(CONFIG_PATH)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config['django'].get('secret_key', 'blah$blah$blah')
 
-# KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
+KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 
 LIVE_SYSTEM = True
 
@@ -66,7 +66,7 @@ EMAIL_HOST_USER = config['email_conf'].get('email_user')
 EMAIL_HOST_PASSWORD = config['email_conf'].get('email_host_pwd')
 DEFAULT_FROM_EMAIL = config['email_conf'].get('email_user')
 
-# Application definition
+SESSION_EXPIRE_SECONDS = 120 
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -122,7 +122,7 @@ INSTALLED_APPS = [
     'esr21.apps.EdcSyncAppConfig',
     'esr21.apps.EdcSyncFilesAppConfig',
     'esr21.apps.EdcSenaiteInterfaceAppConfig',
-    'esr21.apps.AppConfig',
+    'esr21.apps.AppConfig', 
 
 ]
 BOOTSTRAP3 = {
@@ -140,6 +140,9 @@ MIDDLEWARE = [
     'edc_dashboard.middleware.DashboardMiddleware',
     'edc_subject_dashboard.middleware.DashboardMiddleware',
     'edc_lab_dashboard.middleware.DashboardMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'esr21.urls'
@@ -290,4 +293,3 @@ EDC_SYNC_SERVER_IP = config['edc_sync'].get('server_ip')
 EDC_SYNC_FILES_REMOTE_HOST = config['edc_sync_files'].get('remote_host')
 EDC_SYNC_FILES_USER = config['edc_sync_files'].get('sync_user')
 EDC_SYNC_FILES_USB_VOLUME = config['edc_sync_files'].get('usb_volume')
-
