@@ -159,6 +159,7 @@ class EdcDeviceAppConfig(BaseEdcDeviceAppConfig):
     use_settings = True
     device_id = settings.DEVICE_ID
     device_role = settings.DEVICE_ROLE
+    node_server_id_list = ['94', '95', '96', '97', '98']
 
 
 class EdcLabelAppConfig(BaseEdcLabelAppConfig):

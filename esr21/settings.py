@@ -53,7 +53,7 @@ KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 LIVE_SYSTEM = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'esr21.bhp.org.bw', '127.0.0.1']
 
