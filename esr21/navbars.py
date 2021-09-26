@@ -20,14 +20,6 @@ esr21.append_item(
 
 esr21.append_item(
     NavbarItem(
-        name='esr21_follow',
-        title='Follow Ups',
-        label='Follow Ups',
-        fa_icon='fa-user-plus',
-        url_name='esr21_follow:home_url'))
-
-esr21.append_item(
-    NavbarItem(
         name='lab',
         label='Specimens',
         fa_icon='fa-flask',
