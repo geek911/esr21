@@ -176,23 +176,23 @@ DB_PASSWORD = mysql_config['mysql']['password']
 DB_NAME = mysql_config['mysql']['database']
 PORT = mysql_config['mysql']['port']
 
-# DATABASES = {
-#      'default': {
-#          'ENGINE': 'django.db.backends.mysql',
-#          'NAME': DB_NAME,
-#          'USER': DB_USER,
-#          'PASSWORD': DB_PASSWORD,
-#          'HOST': HOST,  # Or an IP Address that your DB is hosted on
-#          'PORT': PORT,
-#      }
-#  }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+     'default': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': DB_NAME,
+         'USER': DB_USER,
+         'PASSWORD': DB_PASSWORD,
+         'HOST': HOST,  # Or an IP Address that your DB is hosted on
+         'PORT': PORT,
+     }
+ }
+
+# DATABASES = {
+    # 'default': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
