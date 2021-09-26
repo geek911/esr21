@@ -1,34 +1,36 @@
 import configparser
-import os
 from datetime import datetime
+import os
+
 from dateutil.relativedelta import MO, TU, WE, TH, FR, SA, SU
 from dateutil.tz import gettz
 from django.apps import AppConfig as DjangoAppConfig
 from django.conf import settings
 from django.core.management.color import color_style
-from edc_appointment.appointment_config import AppointmentConfig
-from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
-from edc_appointment.constants import COMPLETE_APPT
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
 from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_data_manager.apps import AppConfig as BaseEdcDataManagerAppConfig
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
+from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
 from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
-from edc_senaite_interface.apps import AppConfig as BaseEdcSenaiteInterfaceAppConfig
-from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
-from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
-from edc_sync_files.apps import AppConfig as BaseEdcSyncFilesAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
 from edc_timepoint.timepoint_collection import TimepointCollection
+
+from edc_appointment.appointment_config import AppointmentConfig
+from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
+from edc_appointment.constants import COMPLETE_APPT
+from edc_senaite_interface.apps import AppConfig as BaseEdcSenaiteInterfaceAppConfig
+from edc_senaite_interface.apps import AppConfig as BaseEdcSenaiteInterfaceAppConfig
+from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
+from edc_sync_files.apps import AppConfig as BaseEdcSyncFilesAppConfig
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT, \
     COMPLETED_PROTOCOL_VISIT, MISSED_VISIT
-from edc_senaite_interface.apps import AppConfig as BaseEdcSenaiteInterfaceAppConfig
 from esr21_dashboard.patterns import subject_identifier
 
 style = color_style()
@@ -178,7 +180,7 @@ class EdcSyncFilesAppConfig(BaseEdcSyncFilesAppConfig):
     remote_media = config['edc_sync_files'].get('remote_media')
     tmp_folder = os.path.join(remote_media, 'transactions', 'tmp')
     incoming_folder = os.path.join(remote_media, 'transactions', 'incoming')
-    media_path = os.path.join(settings.MEDIA_ROOT)
+    media_path = os.path.join(settings.MEDIA_ROOT, 'other_media')
     media_dst = os.path.join(remote_media)
     media_tmp = os.path.join('/tmp/')
 

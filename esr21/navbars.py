@@ -1,6 +1,6 @@
 from django.conf import settings
-from edc_navbar import NavbarItem, site_navbars, Navbar
 from edc_lab_dashboard.dashboard_urls import dashboard_urls as lab_dashboard_urls
+from edc_navbar import NavbarItem, site_navbars, Navbar
 
 esr21 = Navbar(name='esr21')
 
