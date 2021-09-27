@@ -179,8 +179,8 @@ class EdcSyncFilesAppConfig(BaseEdcSyncFilesAppConfig):
     user = config['edc_sync_files'].get('sync_user')
     usb_volume = config['edc_sync_files'].get('usb_volume')
     remote_media = config['edc_sync_files'].get('remote_media')
-    tmp_folder = os.path.join(remote_media, 'transactions', 'tmp')
-    incoming_folder = os.path.join(remote_media, 'transactions', 'incoming')
+    tmp_folder = os.path.join(settings.MEDIA_ROOT, 'transactions', 'tmp')
+    incoming_folder = os.path.join(settings.MEDIA_ROOT, 'transactions', 'incoming')
     media_path = os.path.join(settings.MEDIA_ROOT, 'other_media')
     media_dst = os.path.join(remote_media)
     media_tmp = os.path.join('/tmp/')
@@ -196,7 +196,9 @@ class EdcSyncFilesAppConfig(BaseEdcSyncFilesAppConfig):
                           self.log_folder]
 
         folder_dict = {'Client': client_folders,
-                       'CentralServer': server_folders}
+                       'CentralServer': server_folders,
+                       'NodeServer': server_folders}
+
         role = config['edc_device'].get('role')
 
         for folder in folder_dict.get(role):
