@@ -19,10 +19,7 @@ from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.urls import path, include
 from django.views.generic.base import RedirectView
-
 from edc_action_item.admin_site import edc_action_item_admin
-from edc_appointment.admin_site import edc_appointment_admin
-from edc_calendar.admin_site import edc_calendar_admin
 from edc_call_manager.admin_site import edc_call_manager_admin
 from edc_data_manager.admin_site import edc_data_manager_admin
 from edc_identifier.admin_site import edc_identifier_admin
@@ -31,17 +28,20 @@ from edc_locator.admin_site import edc_locator_admin
 from edc_metadata.admin_site import edc_metadata_admin
 from edc_reference.admin_site import edc_reference_admin
 from edc_registration.admin_site import edc_registration_admin
+
+from edc_appointment.admin_site import edc_appointment_admin
+from edc_calendar.admin_site import edc_calendar_admin
+from edc_senaite_interface.admin_site import edc_senaite_interface_admin
 from edc_sync.admin_site import edc_sync_admin
 from edc_sync_files.admin_site import edc_sync_files_admin
-from edc_senaite_interface.admin_site import edc_senaite_interface_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
-from esr21_follow.admin_site import esr21_follow_admin
+from esr21_export.admin_site import esr21_export_admin
 from esr21_prn.admin_site import esr21_prn_admin
 from esr21_subject.admin_site import esr21_subject_admin
-from esr21_export.admin_site import esr21_export_admin
 
 from .views import HomeView, AdministrationView
 
+# from esr21_follow.admin_site import esr21_follow_admin
 urlpatterns = [
     path('accounts/', include('edc_base.auth.urls')),
     path('admin/', include('edc_base.auth.urls')),
@@ -61,7 +61,7 @@ urlpatterns = [
     path('admin/', edc_sync_admin.urls),
     path('admin/', edc_sync_files_admin.urls),
 
-    path('admin/', esr21_follow_admin.urls),
+    # path('admin/', esr21_follow_admin.urls),
     path('admin/', esr21_subject_admin.urls),
     path('admin/', esr21_prn_admin.urls),
     path('admin/', esr21_export_admin.urls),
@@ -76,7 +76,7 @@ urlpatterns = [
     path('admin/esr21_prn/',
          RedirectView.as_view(url='admin/esr21_prn/'),
          name='esr21_prn_models_url'),
-    path('esr21_follow/', include('esr21_follow.urls')),
+    # path('esr21_follow/', include('esr21_follow.urls')),
 
     path('edc_lab/', include('edc_lab.urls')),
     path('edc_lab_dashboard/', include('edc_lab_dashboard.urls')),

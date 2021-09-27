@@ -10,12 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
+import configparser
 import os
-from django.conf import settings
+from pathlib import Path
 import sys
 
-import configparser
+from django.conf import settings
 from django.core.management.color import color_style
 
 # from .logging import LOGGING
@@ -53,7 +53,7 @@ KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 LIVE_SYSTEM = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'esr21.bhp.org.bw', '127.0.0.1']
 
@@ -66,7 +66,7 @@ EMAIL_HOST_USER = config['email_conf'].get('email_user')
 EMAIL_HOST_PASSWORD = config['email_conf'].get('email_host_pwd')
 DEFAULT_FROM_EMAIL = config['email_conf'].get('email_user')
 
-SESSION_EXPIRE_SECONDS = 120 
+SESSION_EXPIRE_SECONDS = 1800
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -98,7 +98,7 @@ INSTALLED_APPS = [
     'edc_visit_schedule.apps.AppConfig',
     'edc_call_manager.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
-    'esr21_follow.apps.AppConfig',
+    # 'esr21_follow.apps.AppConfig',
     'esr21_export.apps.AppConfig',
     'esr21_dashboard.apps.AppConfig',
     'esr21_labs.apps.AppConfig',
@@ -122,7 +122,7 @@ INSTALLED_APPS = [
     'esr21.apps.EdcSyncAppConfig',
     'esr21.apps.EdcSyncFilesAppConfig',
     'esr21.apps.EdcSenaiteInterfaceAppConfig',
-    'esr21.apps.AppConfig', 
+    'esr21.apps.AppConfig',
 
 ]
 BOOTSTRAP3 = {
@@ -142,7 +142,7 @@ MIDDLEWARE = [
     'edc_lab_dashboard.middleware.DashboardMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django_session_timeout.middleware.SessionTimeoutMiddleware',
-    
+
 ]
 
 ROOT_URLCONF = 'esr21.urls'
@@ -176,23 +176,23 @@ DB_PASSWORD = mysql_config['mysql']['password']
 DB_NAME = mysql_config['mysql']['database']
 PORT = mysql_config['mysql']['port']
 
-# DATABASES = {
-#      'default': {
-#          'ENGINE': 'django.db.backends.mysql',
-#          'NAME': DB_NAME,
-#          'USER': DB_USER,
-#          'PASSWORD': DB_PASSWORD,
-#          'HOST': HOST,  # Or an IP Address that your DB is hosted on
-#          'PORT': PORT,
-#      }
-#  }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+     'default': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': DB_NAME,
+         'USER': DB_USER,
+         'PASSWORD': DB_PASSWORD,
+         'HOST': HOST,  # Or an IP Address that your DB is hosted on
+         'PORT': PORT,
+     }
+ }
+
+# DATABASES = {
+    # 'default': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -259,9 +259,8 @@ DASHBOARD_URL_NAMES = {
     'subject_dashboard_url': 'esr21_dashboard:subject_dashboard_url',
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'export_listboard_url': 'esr21_export:export_listboard_url',
-    'esr21_follow_listboard_url': 'esr21_follow:esr21_follow_listboard_url',
-    'esr21_follow_appt_listboard_url': 'esr21_follow:esr21_follow_appt_listboard_url',
-    'esr21_follow_booking_listboard_url': 'esr21_follow:esr21_follow_booking_listboard_url',
+    # 'esr21_follow_listboard_url': 'esr21_follow:esr21_follow_listboard_url',
+    # 'esr21_follow_appt_listboard_url': 'esr21_follow:esr21_follow_appt_listboard_url',
 }
 
 LAB_DASHBOARD_BASE_TEMPLATES = {}
@@ -274,10 +273,8 @@ DASHBOARD_BASE_TEMPLATES = {
     'subject_listboard_template': 'esr21_dashboard/subject/listboard.html',
     'export_listboard_template': 'esr21_export/listboard.html',
     'data_manager_listboard_template': 'edc_data_manager/listboard.html',
-    'esr21_follow_listboard_template': 'esr21_follow/follow_listboard.html',
-    'esr21_follow_appt_listboard_template': 'esr21_follow/appointments_windows_listboards.html',
-    'esr21_follow_booking_listboard_template': 'esr21_follow/bookings_listboard.html',
-
+    # 'esr21_follow_listboard_template': 'esr21_follow/follow_listboard.html',
+    # 'esr21_follow_appt_listboard_template': 'esr21_follow/appointments_windows_listboards.html',
 }
 
 # edc_facility

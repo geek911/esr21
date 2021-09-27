@@ -1,6 +1,6 @@
 from django.conf import settings
-from edc_navbar import NavbarItem, site_navbars, Navbar
 from edc_lab_dashboard.dashboard_urls import dashboard_urls as lab_dashboard_urls
+from edc_navbar import NavbarItem, site_navbars, Navbar
 
 esr21 = Navbar(name='esr21')
 
@@ -17,14 +17,6 @@ esr21.append_item(
         label='Subjects',
         fa_icon='far fa-user-circle',
         url_name=settings.DASHBOARD_URL_NAMES.get('subject_listboard_url')))
-
-esr21.append_item(
-    NavbarItem(
-        name='esr21_follow',
-        title='Follow Ups',
-        label='Follow Ups',
-        fa_icon='fa-user-plus',
-        url_name=settings.DASHBOARD_URL_NAMES.get('esr21_follow_booking_listboard_url')))
 
 esr21.append_item(
     NavbarItem(
