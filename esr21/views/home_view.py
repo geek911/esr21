@@ -22,14 +22,19 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
     def subject_consent_cls(self):
         return django_apps.get_model(self.subject_consent_model)
 
+    @property
+    def vaccine_model_cls(self):
+        return django_apps.get_model(self.vaccine_model)
+
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         subject_screening = self.subject_screening_cls.objects.all()
         subject_consent = self.subject_consent_cls.objects.all()
-        vaccinated_first_dose = self.vaccine_model.objects.filter(
+        vaccinated_first_dose = self.vaccine_model_cls.objects.filter(
             received_dose='Yes', received_dose_before='first_dose')
     
-        vaccinated_second_dose = self.vaccine_model.objects.filter(
+        vaccinated_second_dose = self.vaccine_model_cls.objects.filter(
             received_dose='Yes', received_dose_before='second_dose')
 
         screened_subjects = subject_screening.count()
