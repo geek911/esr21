@@ -18,6 +18,16 @@ esr21.append_item(
         fa_icon='far fa-user-circle',
         url_name=settings.DASHBOARD_URL_NAMES.get('subject_listboard_url')))
 
+
+esr21.append_item(
+    NavbarItem(
+        name='esr21_follow',
+        title='Follow Ups',
+        label='Follow Ups',
+        fa_icon='fa-user-plus',
+        url_name=settings.DASHBOARD_URL_NAMES.get('esr21_follow_booking_listboard_url')))
+
+
 esr21.append_item(
     NavbarItem(
         name='lab',
