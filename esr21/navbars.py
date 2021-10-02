@@ -5,6 +5,13 @@ from edc_navbar import NavbarItem, site_navbars, Navbar
 esr21 = Navbar(name='esr21')
 
 esr21.append_item(
+    NavbarItem(name='synchronization',
+               label='Sync Data',
+               fa_icon='fa-exchange',
+               url_name='edc_sync:home_url'))
+
+
+esr21.append_item(
     NavbarItem(
         name='eligible_subject',
         label='Subject Screening',
@@ -22,30 +29,24 @@ esr21.append_item(
 esr21.append_item(
     NavbarItem(
         name='esr21_follow',
-        title='Follow Ups',
-        label='Follow Ups',
-        fa_icon='fa-user-plus',
+        title='Follow',
+        label=None,
+        fa_icon='fa-phone',
         url_name=settings.DASHBOARD_URL_NAMES.get('esr21_follow_booking_listboard_url')))
 
 
 esr21.append_item(
     NavbarItem(
         name='lab',
-        label='Specimens',
+        label=None,
         fa_icon='fa-flask',
         url_name=lab_dashboard_urls.get('requisition_listboard_url')))
 
 esr21.append_item(
     NavbarItem(
-        name='export_data',
-        label='Export Data',
-        fa_icon='fa fa-database',
+        name='export data',
+        label=None,
+        fa_icon='fa-download',
         url_name='esr21_export:home_url'))
-
-esr21.append_item(
-    NavbarItem(name='synchronization',
-               label='Data Synchronization',
-               fa_icon='fa-exchange',
-               url_name='edc_sync:home_url'))
 
 site_navbars.register(esr21)
