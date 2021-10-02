@@ -276,6 +276,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'data_manager_listboard_template': 'edc_data_manager/listboard.html',
     'esr21_follow_listboard_template': 'esr21_follow/follow_listboard.html',
     'esr21_follow_appt_listboard_template': 'esr21_follow/appointments_windows_listboards.html',
+    'esr21_follow_booking_listboard_template': 'esr21_follow/bookings_listboard.html',
 }
 
 # edc_facility
