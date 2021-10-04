@@ -250,7 +250,7 @@ HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 CUPS_SERVERS = 'localhost'
 LABEL_PRINTER = 'esr21_printer'
 LABEL_TEMPLATE_FOLDER = os.path.join(
-        settings.STATIC_ROOT, 'edc_label', 'label_templates')
+        settings.STATIC_ROOT, 'esr21_label', 'label_templates')
 
 # dashboards
 DASHBOARD_URL_NAMES = {
