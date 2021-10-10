@@ -37,11 +37,12 @@ from edc_sync_files.admin_site import edc_sync_files_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 from esr21_export.admin_site import esr21_export_admin
 from esr21_prn.admin_site import esr21_prn_admin
+from esr21_follow.admin_site import esr21_follow_admin
 from esr21_subject.admin_site import esr21_subject_admin
 
 from .views import HomeView, AdministrationView
 
-# from esr21_follow.admin_site import esr21_follow_admin
+
 urlpatterns = [
     path('accounts/', include('edc_base.auth.urls')),
     path('admin/', include('edc_base.auth.urls')),
@@ -61,7 +62,7 @@ urlpatterns = [
     path('admin/', edc_sync_admin.urls),
     path('admin/', edc_sync_files_admin.urls),
 
-    # path('admin/', esr21_follow_admin.urls),
+    path('admin/', esr21_follow_admin.urls),
     path('admin/', esr21_subject_admin.urls),
     path('admin/', esr21_prn_admin.urls),
     path('admin/', esr21_export_admin.urls),
@@ -76,7 +77,7 @@ urlpatterns = [
     path('admin/esr21_prn/',
          RedirectView.as_view(url='admin/esr21_prn/'),
          name='esr21_prn_models_url'),
-    # path('esr21_follow/', include('esr21_follow.urls')),
+    path('esr21_follow/', include('esr21_follow.urls')),
 
     path('edc_lab/', include('edc_lab.urls')),
     path('edc_lab_dashboard/', include('edc_lab_dashboard.urls')),

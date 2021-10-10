@@ -25,7 +25,6 @@ from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_appointment.constants import COMPLETE_APPT
 from edc_senaite_interface.apps import AppConfig as BaseEdcSenaiteInterfaceAppConfig
-from edc_senaite_interface.apps import AppConfig as BaseEdcSenaiteInterfaceAppConfig
 from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
 from edc_sync_files.apps import AppConfig as BaseEdcSyncFilesAppConfig
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
