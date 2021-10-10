@@ -1,5 +1,5 @@
 from .base import *
 
-SITE_ID = '40'
+SITE_ID = 40
 
-WSGI_APPLICATION = 'bcpp.wsgis.gaborone.application'
+WSGI_APPLICATION = f'{APP_NAME}.wsgis.gaborone.application'

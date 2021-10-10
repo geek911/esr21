@@ -1,5 +1,5 @@
 from .base import *
 
-SITE_ID = '44'
+SITE_ID = 44
 
-WSGI_APPLICATION = 'bcpp.wsgis.selibe_phikwe.application'
+WSGI_APPLICATION = f'{APP_NAME}.wsgis.selibe_phikwe.application'

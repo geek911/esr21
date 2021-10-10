@@ -1,5 +1,5 @@
 from .base import *
 
-SITE_ID = '41'
+SITE_ID = 41
 
-WSGI_APPLICATION = 'bcpp.wsgis.maun.application'
+WSGI_APPLICATION = f'{APP_NAME}.bcpp.wsgis.maun.application'
