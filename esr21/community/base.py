@@ -163,7 +163,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'esr21.wsgi.application'
+WSGI_APPLICATION = f'{APP_NAME}.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -188,10 +188,10 @@ DATABASES = {
  }
 
 # DATABASES = {
-    # 'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
 # }
 
 # Password validation
@@ -262,7 +262,6 @@ DASHBOARD_URL_NAMES = {
     'esr21_follow_listboard_url': 'esr21_follow:esr21_follow_listboard_url',
     'esr21_follow_appt_listboard_url': 'esr21_follow:esr21_follow_appt_listboard_url',
     'esr21_follow_booking_listboard_url': 'esr21_follow:esr21_follow_booking_listboard_url',
-    'esr21_follow_book_listboard_url': 'esr21_follow:esr21_follow_book_listboard_url',
 }
 
 LAB_DASHBOARD_BASE_TEMPLATES = {}
@@ -278,7 +277,6 @@ DASHBOARD_BASE_TEMPLATES = {
     'esr21_follow_listboard_template': 'esr21_follow/follow_listboard.html',
     'esr21_follow_appt_listboard_template': 'esr21_follow/appointments_windows_listboards.html',
     'esr21_follow_booking_listboard_template': 'esr21_follow/bookings_listboard.html',
-    'esr21_follow_book_listboard_template': 'esr21_follow/book_listboard.html',
 }
 
 # edc_facility
