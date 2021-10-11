@@ -5,13 +5,6 @@ from edc_navbar import NavbarItem, site_navbars, Navbar
 esr21 = Navbar(name='esr21')
 
 esr21.append_item(
-    NavbarItem(name='synchronization',
-               label='Sync Data',
-               fa_icon='fa-exchange',
-               url_name='edc_sync:home_url'))
-
-
-esr21.append_item(
     NavbarItem(
         name='eligible_subject',
         label='Subject Screening',
@@ -32,7 +25,7 @@ esr21.append_item(
         title='Follow',
         label=None,
         fa_icon='fa-phone',
-        url_name=settings.DASHBOARD_URL_NAMES.get('esr21_follow_booking_listboard_url')))
+        url_name=settings.DASHBOARD_URL_NAMES.get('esr21_follow_book_listboard_url')))
 
 
 esr21.append_item(
@@ -48,5 +41,11 @@ esr21.append_item(
         label=None,
         fa_icon='fa-download',
         url_name='esr21_export:home_url'))
+
+esr21.append_item(
+    NavbarItem(name='synchronization',
+               label='Sync Data',
+               fa_icon='fa-exchange',
+               url_name='edc_sync:home_url'))
 
 site_navbars.register(esr21)
