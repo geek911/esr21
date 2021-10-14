@@ -8,7 +8,7 @@ errorlog = os.path.join(
 accesslog = os.path.join(
     SOURCE_ROOT, 'esr21/logs/esr21-serowe-gunicorn-access.log')
 loglevel = 'debug'
-pidfile = os.path.join(SOURCE_ROOT, 'logs/esr21-serowe.pid')
+pidfile = os.path.join(SOURCE_ROOT, 'esr21/logs/esr21-serowe.pid')
 
 workers = 2  # the number of recommended workers is '2 * number of CPUs + 1'
 
