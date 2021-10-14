@@ -1,4 +1,4 @@
-from .base import *
+from ..settings import *
 
 SITE_ID = 43
 
