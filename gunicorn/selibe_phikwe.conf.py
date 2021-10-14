@@ -14,4 +14,4 @@ workers = 2  # the number of recommended workers is '2 * number of CPUs + 1'
 
 raw_env = ['DJANGO_SETTINGS_MODULE=esr21.community.selibe_phikwe']
 
-bind = "127.0.0.1:9016"
+bind = "127.0.0.1:9014"
