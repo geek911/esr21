@@ -15,7 +15,6 @@ import os
 from pathlib import Path
 import sys
 
-from django.conf import settings
 from django.core.management.color import color_style
 
 # from .logging import LOGGING
@@ -249,8 +248,7 @@ HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 
 CUPS_SERVERS = 'localhost'
 LABEL_PRINTER = 'esr21_printer'
-LABEL_TEMPLATE_FOLDER = os.path.join(
-        settings.STATIC_ROOT, 'esr21_label', 'label_templates')
+LABEL_TEMPLATE_FOLDER = os.path.join(STATIC_ROOT, 'esr21_label', 'label_templates')
 
 # dashboards
 DASHBOARD_URL_NAMES = {
