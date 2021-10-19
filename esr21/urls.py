@@ -112,6 +112,8 @@ urlpatterns = [
          name='switch_sites_url'),
     path('home/', HomeView.as_view(), name='home_url'),
     path('', HomeView.as_view(), name='home_url'),
+    path('operational_reports/', include('operational_reports.urls')),
+    path('medical_reports/', include('medical_reports.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
