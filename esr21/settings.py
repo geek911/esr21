@@ -122,6 +122,8 @@ INSTALLED_APPS = [
     'esr21.apps.EdcSyncFilesAppConfig',
     'esr21.apps.EdcSenaiteInterfaceAppConfig',
     'esr21.apps.AppConfig',
+    'operational_reports.apps.OperationalReportsConfig',
+    'medical_reports.apps.MedicalReportsConfig',
 
 ]
 BOOTSTRAP3 = {
