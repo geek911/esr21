@@ -123,6 +123,7 @@ INSTALLED_APPS = [
     'esr21.apps.EdcSyncFilesAppConfig',
     'esr21.apps.EdcSenaiteInterfaceAppConfig',
     'esr21.apps.AppConfig',
+    'esr21_reports.apps.AppConfig',
 
 ]
 BOOTSTRAP3 = {
@@ -263,6 +264,7 @@ DASHBOARD_URL_NAMES = {
     'esr21_follow_appt_listboard_url': 'esr21_follow:esr21_follow_appt_listboard_url',
     'esr21_follow_booking_listboard_url': 'esr21_follow:esr21_follow_booking_listboard_url',
     'esr21_follow_book_listboard_url': 'esr21_follow:esr21_follow_book_listboard_url',
+    'esr21_reports_home_url': 'esr21_reports:esr21_reports_home_url',
 }
 
 LAB_DASHBOARD_BASE_TEMPLATES = {}

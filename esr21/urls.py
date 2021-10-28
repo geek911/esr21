@@ -96,6 +96,7 @@ urlpatterns = [
     path('edc_senaite_interface/', include('edc_senaite_interface.urls')),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
     path('admin/edc_call_manager/', edc_call_manager_admin.urls),
+    path('esr21_reports/', include('esr21_reports.urls')),
 
     path('edc_appointment/', include('edc_appointment.urls')),
     path('edc_action_item/', include('edc_action_item.urls')),
