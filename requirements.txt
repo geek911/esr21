@@ -50,6 +50,7 @@ git+https://github.com/covid19-vaccine/esr21-visit-schedule.git@develop#esr21_vi
 git+https://github.com/covid19-vaccine/esr21-metadata-rules.git@develop#esr21_metadata_rules
 git+https://github.com/covid19-vaccine/esr21-reference.git@develop#esr21_reference
 git+https://github.com/covid19-vaccine/esr21-labs.git@develop#esr21_labs
+git+https://github.com/covid19-vaccine/esr21-reports.git@develop#esr21_reports
 django-countries
 django-multiselectfield
 notebook
