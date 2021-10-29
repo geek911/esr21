@@ -15,7 +15,6 @@ import os
 from pathlib import Path
 import sys
 
-from django.conf import settings
 from django.core.management.color import color_style
 
 # from .logging import LOGGING
@@ -123,6 +122,7 @@ INSTALLED_APPS = [
     'esr21.apps.EdcSyncFilesAppConfig',
     'esr21.apps.EdcSenaiteInterfaceAppConfig',
     'esr21.apps.AppConfig',
+    'esr21_reports.apps.AppConfig',
 
 ]
 BOOTSTRAP3 = {
@@ -249,8 +249,7 @@ HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 
 CUPS_SERVERS = 'localhost'
 LABEL_PRINTER = 'esr21_printer'
-LABEL_TEMPLATE_FOLDER = os.path.join(
-        settings.STATIC_ROOT, 'esr21_label', 'label_templates')
+LABEL_TEMPLATE_FOLDER = os.path.join(STATIC_ROOT, 'esr21_label', 'label_templates')
 
 # dashboards
 DASHBOARD_URL_NAMES = {
@@ -263,6 +262,7 @@ DASHBOARD_URL_NAMES = {
     'esr21_follow_appt_listboard_url': 'esr21_follow:esr21_follow_appt_listboard_url',
     'esr21_follow_booking_listboard_url': 'esr21_follow:esr21_follow_booking_listboard_url',
     'esr21_follow_book_listboard_url': 'esr21_follow:esr21_follow_book_listboard_url',
+    'esr21_reports_home_url': 'esr21_reports:esr21_reports_home_url',
 }
 
 LAB_DASHBOARD_BASE_TEMPLATES = {}

@@ -30,6 +30,15 @@ esr21.append_item(
 
 esr21.append_item(
     NavbarItem(
+        name='esr21_reports',
+        title='Reports',
+        label=None,
+        fa_icon='fa-file',
+        url_name=settings.DASHBOARD_URL_NAMES.get('esr21_reports_home_url')))
+
+
+esr21.append_item(
+    NavbarItem(
         name='lab',
         label=None,
         fa_icon='fa-flask',
