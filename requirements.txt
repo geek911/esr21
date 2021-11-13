@@ -51,6 +51,7 @@ git+https://github.com/covid19-vaccine/esr21-metadata-rules.git@develop#esr21_me
 git+https://github.com/covid19-vaccine/esr21-reference.git@develop#esr21_reference
 git+https://github.com/covid19-vaccine/esr21-labs.git@develop#esr21_labs
 git+https://github.com/covid19-vaccine/esr21-reports.git@develop#esr21_reports
+mysqlclient
 django-countries
 django-multiselectfield
 notebook
@@ -59,3 +60,4 @@ django-crispy-forms
 xlwt
 django-q
 django-session-timeout
+openpyxl
