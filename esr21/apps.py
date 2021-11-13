@@ -135,22 +135,26 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 
 
 class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
-    host = "https://senaite-server.bhp.org.bw/"
-    client = "BHP150 | AZD1222"
+    host = "https://bhplims.bhp.org.bw"
+    client = "AZD1222"
+    courier = "ABRAHAM MAIGWA"
     sample_type_match = {'humoral_immunogenicity': 'Serum',
                          'sars_cov2_serology': 'Serum',
                          'sars_cov2_pcr': 'Swab',
                          'hematology': 'Whole Blood EDTA',
+                         'wb_cmi': 'Whole Blood EDTA',
                          'urine_hcg': 'Urine'}
     container_type_match = {'humoral_immunogenicity': 'Cryogenic vial',
                             'sars_cov2_serology': 'Cryogenic vial',
                             'sars_cov2_pcr': 'Cryogenic Vial',
                             'hematology': 'EDTA Tube',
+                            'wb_cmi': 'EDTA Tube',
                             'urine_hcg': 'Urine Cup'}
     template_match = {'humoral_immunogenicity': 'Serum storage',
-                      'sars_cov2_serology': 'SARS-COV-2 Serology',
-                      'sars_cov2_pcr': 'SARS-COV-2 PCR',
+                      'sars_cov2_serology': 'SARS-CoV-2 serology',
+                      'sars_cov2_pcr': 'SARS COV 2 PCR',
                       'hematology': 'CBC',
+                      'wb_cmi': 'PBMC Whole Blood EDTA',
                       'urine_hcg': 'Urine HCG'}
 
 
