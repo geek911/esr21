@@ -30,15 +30,13 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        subject_screening = self.subject_screening_cls.objects.filter(site__id=settings.SITE_ID)
-        subject_consent = self.subject_consent_cls.objects.filter(site__id=settings.SITE_ID)
+        subject_screening = self.subject_screening_cls.objects.all()
+        subject_consent = self.subject_consent_cls.objects.all()
         vaccinated_first_dose = self.vaccine_model_cls.objects.filter(
-            received_dose='Yes', received_dose_before='first_dose',
-            site__id=settings.SITE_ID)
+            received_dose='Yes', received_dose_before='first_dose')
     
         vaccinated_second_dose = self.vaccine_model_cls.objects.filter(
-            received_dose='Yes', received_dose_before='second_dose',
-            site__id=settings.SITE_ID)
+            received_dose='Yes', received_dose_before='second_dose')
 
         screened_subjects = subject_screening.count()
         consented_subjects = subject_consent.count()
