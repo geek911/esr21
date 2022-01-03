@@ -60,3 +60,5 @@ xlwt
 django-q
 django-session-timeout
 openpyxl
+django-chartjs
+django-pandas
