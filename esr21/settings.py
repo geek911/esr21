@@ -47,12 +47,12 @@ config.read(CONFIG_PATH)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config['django'].get('secret_key', 'blah$blah$blah')
 
-KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
+# KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 
 LIVE_SYSTEM = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'esr21.bhp.org.bw', '127.0.0.1']
 
@@ -104,6 +104,7 @@ INSTALLED_APPS = [
     'esr21_labs.apps.AppConfig',
     'esr21_prn.apps.AppConfig',
     'esr21_subject.apps.AppConfig',
+    'esr21_pharmacy.apps.AppConfig',
     'esr21_metadata_rules.apps.AppConfig',
     'esr21_reference.apps.AppConfig',
     'esr21_visit_schedule.apps.AppConfig',
