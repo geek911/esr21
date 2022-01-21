@@ -61,3 +61,5 @@ xlwt
 django-q
 django-session-timeout
 openpyxl
+flexitext
+matplotlib
