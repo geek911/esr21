@@ -63,3 +63,4 @@ django-session-timeout
 openpyxl
 flexitext
 matplotlib
+tabulate
