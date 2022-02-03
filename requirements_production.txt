@@ -62,3 +62,5 @@ django-session-timeout
 openpyxl
 django-chartjs
 django-pandas
+flexitext
+matplotlib
