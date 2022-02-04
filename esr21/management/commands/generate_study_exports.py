@@ -14,6 +14,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         export_type = kwargs.get('export_type')
+        if export_type == 'all_data':
+            self.export_all_data()
         if export_type == 'subject_data':
             self.export_subject_data()
         elif export_type == 'non_crf_data':
@@ -21,10 +23,15 @@ class Command(BaseCommand):
         elif export_type == 'metadata_data':
             self.export_metadata_data()
 
+    def export_all_data(self):
+        view_cls = ListBoardViewMixin()
+        view_cls.identifier_cls = ExportIdentifier
+        view_cls.download_all_data()
+
     def export_subject_data(self):
         view_cls = ListBoardViewMixin()
         view_cls.identifier_cls = ExportIdentifier
-        view_cls.download_medata()
+        view_cls.download_subject_data()
 
     def export_non_crf_data(self):
         view_cls = ListBoardViewMixin()
