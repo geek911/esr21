@@ -15,6 +15,7 @@ from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
 from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
+from edc_meddra.apps import AppConfig as BaseEdcMeddraAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
@@ -139,7 +140,7 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
     client = "AZD1222"
     courier = "ABRAHAM MAIGWA"
     sample_type_match = {'humoral_immunogenicity': 'Serum',
-                         'sars_cov2_serology': 'Serum',
+                         'sars_serum': 'Serum',
                          'sars_cov2_pcr': 'Swab',
                          'hematology': 'Whole Blood EDTA',
                          'wb_cmi': 'Whole Blood EDTA',
@@ -151,7 +152,7 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                             'wb_cmi': 'EDTA Tube',
                             'urine_hcg': 'Urine Cup'}
     template_match = {'humoral_immunogenicity': 'Serum storage',
-                      'sars_cov2_serology': 'SARS-CoV-2 serology',
+                      'sars_serum': 'SARS-CoV-2 serology',
                       'sars_cov2_pcr': 'SARS COV 2 PCR',
                       'hematology': 'CBC',
                       'wb_cmi': 'PBMC Whole Blood EDTA',
@@ -207,3 +208,7 @@ class EdcSyncFilesAppConfig(BaseEdcSyncFilesAppConfig):
         for folder in folder_dict.get(role):
             if not os.path.exists(folder):
                 os.makedirs(folder)
+
+
+class EdcMeddraAppConfig(BaseEdcMeddraAppConfig):
+    version = 24.1
