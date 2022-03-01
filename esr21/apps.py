@@ -212,3 +212,4 @@ class EdcSyncFilesAppConfig(BaseEdcSyncFilesAppConfig):
 
 class EdcMeddraAppConfig(BaseEdcMeddraAppConfig):
     version = 24.1
+    ctcae_version = 5.0
