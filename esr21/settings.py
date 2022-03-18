@@ -84,6 +84,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'crispy_forms',
     'chartjs',
+    'simple_history',
     'django_crypto_fields.apps.AppConfig',
     'edc_action_item.apps.AppConfig',
     'edc_calendar.apps.AppConfig',
