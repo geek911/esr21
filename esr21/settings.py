@@ -84,6 +84,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'crispy_forms',
     'chartjs',
+    'simple_history',
     'django_crypto_fields.apps.AppConfig',
     'edc_action_item.apps.AppConfig',
     'edc_calendar.apps.AppConfig',
@@ -247,6 +248,8 @@ DATETIME_FORMAT = 'd/M/Y H:i'
 DATE_FORMAT = 'd/M/Y'
 SHORT_DATE_FORMAT = 'd/M/Y'
 SHORT_DATETIME_FORMAT = 'd/M/Y H:i'
+
+SIMPLE_HISTORY_REVERT_DISABLED = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
