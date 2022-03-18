@@ -249,6 +249,8 @@ DATE_FORMAT = 'd/M/Y'
 SHORT_DATE_FORMAT = 'd/M/Y'
 SHORT_DATETIME_FORMAT = 'd/M/Y H:i'
 
+SIMPLE_HISTORY_REVERT_DISABLED = True
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
