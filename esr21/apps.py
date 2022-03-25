@@ -15,6 +15,7 @@ from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
 from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
+from edc_meddra.apps import AppConfig as BaseEdcMeddraAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
@@ -55,15 +56,23 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
 class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
     identifier_pattern = subject_identifier
     assianable_users_note = True
-    email_issue_notification = True
+    email_issue_notification = False
     extra_assignee_choices = {
-        'azd_clinic': [
-            ('azd_clinic', 'AZD Clinic Coordinators'),
-            ['eshava@bhp.org.bw', 'gaolathet@gmail.com', 'tphindela@bhp.org.bw']],
-        'azd_ras': [
-            ('azd_ras', 'AZD RAs'),
-            ['basadint@gmail.com', 'carolinemazongo2000@yahoo.com', 'dickskea@yahoo.com',
-             'galebutswei@gmail.com']],
+        'gabs_clinic': [
+            ('gabs_clinic', 'AZD Gababorone Clinic'),
+            ['bhp.se.dmc@gmail.com']],
+        'maun_clinic': [
+            ('maun_clinic', 'AZD Maun Clinic'),
+            ['bhp.se.dmc@gmail.com']],
+        'serowe_clinic': [
+            ('serowe_clinic', 'AZD Serowe Clinic'),
+            ['bhp.se.dmc@gmail.com']],
+        'gheto_clinic': [
+            ('gheto_clinic', 'AZD Francistown Clinic'),
+            ['bhp.se.dmc@gmail.com']],
+        'sphikwe_clinic': [
+            ('sphikwe_clinic', 'AZD Selibe Phikwe Clinic'),
+            ['bhp.se.dmc@gmail.com']],
         'se_dmc': [
             ('se_dmc', 'SE & Data Management'),
             ['adiphoko@bhp.org.bw', 'ckgathi@bhp.org.bw', 'imosweu@bhp.org.bw',
@@ -139,7 +148,7 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
     client = "AZD1222"
     courier = "ABRAHAM MAIGWA"
     sample_type_match = {'humoral_immunogenicity': 'Serum',
-                         'sars_cov2_serology': 'Serum',
+                         'sars_serum': 'Serum',
                          'sars_cov2_pcr': 'Swab',
                          'hematology': 'Whole Blood EDTA',
                          'wb_cmi': 'Whole Blood EDTA',
@@ -151,7 +160,7 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                             'wb_cmi': 'EDTA Tube',
                             'urine_hcg': 'Urine Cup'}
     template_match = {'humoral_immunogenicity': 'Serum storage',
-                      'sars_cov2_serology': 'SARS-CoV-2 serology',
+                      'sars_serum': 'SARS-CoV-2 serology',
                       'sars_cov2_pcr': 'SARS COV 2 PCR',
                       'hematology': 'CBC',
                       'wb_cmi': 'PBMC Whole Blood EDTA',
@@ -207,3 +216,8 @@ class EdcSyncFilesAppConfig(BaseEdcSyncFilesAppConfig):
         for folder in folder_dict.get(role):
             if not os.path.exists(folder):
                 os.makedirs(folder)
+
+
+class EdcMeddraAppConfig(BaseEdcMeddraAppConfig):
+    version = 24.1
+    ctcae_version = 5.0

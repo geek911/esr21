@@ -68,6 +68,8 @@ DEFAULT_FROM_EMAIL = config['email_conf'].get('email_user')
 SESSION_EXPIRE_SECONDS = 1800
 
 INSTALLED_APPS = [
+    'dal',
+    'dal_select2',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -82,6 +84,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'crispy_forms',
     'chartjs',
+    'simple_history',
     'django_crypto_fields.apps.AppConfig',
     'edc_action_item.apps.AppConfig',
     'edc_calendar.apps.AppConfig',
@@ -123,6 +126,7 @@ INSTALLED_APPS = [
     'esr21.apps.EdcSyncAppConfig',
     'esr21.apps.EdcSyncFilesAppConfig',
     'esr21.apps.EdcSenaiteInterfaceAppConfig',
+    'esr21.apps.EdcMeddraAppConfig',
     'esr21.apps.AppConfig',
     'esr21_reports.apps.AppConfig',
 
@@ -177,6 +181,12 @@ DB_USER = mysql_config['mysql']['user']
 DB_PASSWORD = mysql_config['mysql']['password']
 DB_NAME = mysql_config['mysql']['database']
 PORT = mysql_config['mysql']['port']
+
+MEDDRA_CONFIGURATION = {
+    'OPTIONS': {
+        'read_default_file': '/etc/esr21/meddra.conf',
+    },
+}
 
 DATABASES = {
      'default': {
@@ -239,6 +249,8 @@ DATETIME_FORMAT = 'd/M/Y H:i'
 DATE_FORMAT = 'd/M/Y'
 SHORT_DATE_FORMAT = 'd/M/Y'
 SHORT_DATETIME_FORMAT = 'd/M/Y H:i'
+
+SIMPLE_HISTORY_REVERT_DISABLED = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
