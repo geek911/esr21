@@ -25,6 +25,8 @@ class Command(BaseCommand):
             self.export_non_crf_data(email=email)
         elif export_type == 'metadata_data':
             self.export_metadata_data(email=email)
+        elif export_type == 'vida_data':
+            self.export_vida_data(email=email)
 
     def export_all_data(self, email=None):
         view_cls = ListBoardViewMixin(to_email=email)
@@ -45,3 +47,8 @@ class Command(BaseCommand):
         view_cls = ListBoardViewMixin(to_email=email)
         view_cls.identifier_cls = ExportIdentifier
         view_cls.download_medata()
+
+    def export_vida_data(self, email=None):
+        view_cls = ListBoardViewMixin(to_email=email)
+        view_cls.identifier_cls = ExportIdentifier
+        view_cls.download_vida_current_export()

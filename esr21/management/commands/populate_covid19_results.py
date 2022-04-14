@@ -18,6 +18,10 @@ class Command(BaseCommand):
     def covid19_results(self):
         return django_apps.get_model('esr21_subject.covid19results')
 
+    @property
+    def subject_visit(self):
+        return django_apps.get_model('esr21_subject.subjectvisit')
+
     def handle(self, *args, **kwargs):
         analysis_result = AnalysisResult(host=settings.HOST)
 
@@ -37,7 +41,13 @@ class Command(BaseCommand):
                 print('>>>', result)
 
                 if result:
-                    created, _ = self.covid19_results.objects.update_or_create(
-                        subject_visit__subject_identifier=requisition_idx[0],
-                        subject_visit__visit_code=requisition_idx[1],
-                        covid_result=result)
+                    try:
+                        subject_visit = self.subject_visit.objects.get(
+                            subject_identifier=requisition_idx[0],
+                            visit_code=requisition_idx[1],)
+                    except self.subject_visit.DoesNotExist:
+                        pass
+                    else:
+                        created, _ = self.covid19_results.objects.update_or_create(
+                            subject_visit=subject_visit,
+                            covid_result=result)
