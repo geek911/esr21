@@ -43,13 +43,14 @@ esr21.append_item(
         label=None,
         fa_icon='fa-flask',
         url_name=lab_dashboard_urls.get('requisition_listboard_url')))
-esr21.append_item(
-    NavbarItem(
-        name='pharmacy dashboard',
-        label=None,
-        fa_icon='fas fa-shopping-basket',
-        url_name='esr21_pharmacy_dashboard:home_url'
-    ))
+
+# esr21.append_item(
+#     NavbarItem(
+#         name='pharmacy dashboard',
+#         label=None,
+#         fa_icon='fas fa-shopping-basket',
+#         url_name='esr21_pharmacy_dashboard:home_url'
+#     ))
 
 esr21.append_item(
     NavbarItem(
