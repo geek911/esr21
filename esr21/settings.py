@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import configparser
 import os
-import sys
 from pathlib import Path
+import sys
 
 from django.core.management.color import color_style
 
