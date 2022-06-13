@@ -67,13 +67,13 @@ class Command(BaseCommand):
             first_dose = vaccine.site_dose_vaccination(
                 site_id=site_id, dose='first_dose')
             second_dose = vaccine.site_dose_vaccination(
-                site_id=site_id, dose='first_dose')
+                site_id=site_id, dose='second_dose')
             booster_dose = vaccine.site_dose_vaccination(
-                site_id=site_id, dose='first_dose')
+                site_id=site_id, dose='booster_dose')
             VaccinationStatistics.objects.update_or_create(
                 site=site,
-                dose_1=first_dose,
-                dose_2=second_dose,
-                dose_3=booster_dose
+                dose_1_percent=first_dose,
+                dose_2_percent=second_dose,
+                dose_3_percent=booster_dose
             )
         pass
