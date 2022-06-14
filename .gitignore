@@ -131,8 +131,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-esr21/static/
-crypto_fields/
-fabfile/
-esr21/settings.py
-esr21/static/
