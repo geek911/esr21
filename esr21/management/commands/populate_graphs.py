@@ -1,3 +1,4 @@
+import json
 from django.core.management.base import BaseCommand
 from esr21_reports.views.graphs_mixins import (AgeDistributionGraphMixin,
                                                ScreeningGraphMixin,
@@ -5,7 +6,9 @@ from esr21_reports.views.graphs_mixins import (AgeDistributionGraphMixin,
                                                VaccinationGraphMixin)
 from esr21_reports.models import (
     AgeStatistics, ScreeningStatistics, EnrollmentStatistics,
-    VaccinationStatistics)
+    VaccinationStatistics, DashboardStatistics)
+from esr21_reports.views.enrollment_report_mixin import EnrollmentReportMixin
+
 from esr21_reports.views.site_helper_mixin import SiteHelperMixin
 
 
@@ -19,6 +22,8 @@ class Command(BaseCommand):
         self.populate_screening_data()
         self.populate_enrollement_data()
         self.populate_vaccination_data()
+        self.populate_enrollement_enrollement_with_conhorts()
+        self.populate_vaccinate()
 
     def populate_age_graph(self):
         age_distribution = AgeDistributionGraphMixin()
@@ -59,7 +64,34 @@ class Command(BaseCommand):
                 male=male,
                 female=female
             )
-
+            
+    def populate_enrollement_enrollement_with_conhorts(self):
+        enrollment = EnrollmentReportMixin()
+        enrolled_participants = enrollment.enrolled_participants
+        enrolled_participants_json = json.dumps(enrolled_participants)
+        
+        DashboardStatistics.objects.update_or_create(
+            key = 'enrolled_statistics',
+            value = enrolled_participants_json
+        )
+        
+    def populate_vaccinate(self):
+        enrollment = EnrollmentReportMixin()
+        
+        vaccinated_participants = [
+                enrollment.received_one_doses,
+                enrollment.received_two_doses,
+                enrollment.received_booster_doses,
+        ]
+        
+        vaccinated_participants_json = json.dumps(vaccinated_participants)
+        
+        DashboardStatistics.objects.update_or_create(
+            key = 'vaccinated_statistics',
+            value = vaccinated_participants_json
+        )
+            
+            
     def populate_vaccination_data(self):
         vaccine = VaccinationGraphMixin()
         for site in self.siteHelper.sites_names:
