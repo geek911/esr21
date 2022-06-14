@@ -23,18 +23,19 @@ class Command(BaseCommand):
     def populate_age_graph(self):
         age_distribution = AgeDistributionGraphMixin()
         for site in self.siteHelper.sites_names:
-            min, lowerquartile, median, upperquartile, max = age_distribution.get_distribution_site(site)
+            site_id = self.siteHelper.get_site_id(site)
+            min, lowerquartile, median, upperquartile, max, site_outliers = age_distribution.get_distribution_site(site_id)
+            defaults = {
+                'min': min,
+                'lowerquartile': lowerquartile,
+                'median': median,
+                'upperquartile': upperquartile,
+                'max': max,
+                }
             AgeStatistics.objects.update_or_create(
                 site=site,
-                min=min,
-                lowerquartile=lowerquartile,
-                median=median,
-                upperquartile=upperquartile,
-                max=max,
+                defaults=defaults
             )
-
-    def populate_other_graphs(self):
-        pass
 
     def populate_screening_data(self):
         screening = ScreeningGraphMixin()
@@ -43,8 +44,10 @@ class Command(BaseCommand):
             passed, failed = screening.get_screened_by_site(site_id=site_id)
             ScreeningStatistics.objects.update_or_create(
                 site=site,
-                passed=passed,
-                failed=failed
+                defaults={
+                    'passed': passed,
+                    'failed': failed
+                }
             )
 
     def populate_enrollement_data(self):
@@ -53,11 +56,14 @@ class Command(BaseCommand):
             site_id = self.siteHelper.get_site_id(site)
             male, female = enrollment.get_vaccinated_by_site(site_id)
             total = male + female
+            defaults = {
+                'total': total,
+                'male': male,
+                'female': female
+            }
             EnrollmentStatistics.objects.update_or_create(
                 site=site,
-                total=total,
-                male=male,
-                female=female
+                defaults=defaults
             )
 
     def populate_vaccination_data(self):
@@ -70,10 +76,15 @@ class Command(BaseCommand):
                 site_id=site_id, dose='second_dose')
             booster_dose = vaccine.site_dose_vaccination(
                 site_id=site_id, dose='booster_dose')
+            defaults = {
+                'dose_1_percent': first_dose,
+                'dose_2_percent': second_dose,
+                'dose_3_percent': booster_dose,
+                'overall_percent': vaccine.overal_site_dose_vaccination(
+                    site_id=site_id)
+            }
+
             VaccinationStatistics.objects.update_or_create(
                 site=site,
-                dose_1_percent=first_dose,
-                dose_2_percent=second_dose,
-                dose_3_percent=booster_dose
+                defaults=defaults
             )
-        pass
