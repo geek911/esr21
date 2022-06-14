@@ -8,6 +8,8 @@ from esr21_reports.models import (
     AgeStatistics, ScreeningStatistics, EnrollmentStatistics,
     VaccinationStatistics, DashboardStatistics)
 from esr21_reports.views.enrollment_report_mixin import EnrollmentReportMixin
+from esr21_reports.views.psrt_mixins import DemographicsMixin
+from esr21_reports.views.adverse_events import AdverseEventRecordViewMixin, SeriousAdverseEventRecordViewMixin
 
 from esr21_reports.views.site_helper_mixin import SiteHelperMixin
 
@@ -24,6 +26,8 @@ class Command(BaseCommand):
         self.populate_vaccination_data()
         self.populate_enrollement_enrollement_with_conhorts()
         self.populate_vaccinate()
+        self.populate_demographics()
+        self.populate_genaral_statistics()
 
     def populate_age_graph(self):
         age_distribution = AgeDistributionGraphMixin()
@@ -89,6 +93,32 @@ class Command(BaseCommand):
         DashboardStatistics.objects.update_or_create(
             key = 'vaccinated_statistics',
             value = vaccinated_participants_json
+        )
+        
+    def populate_demographics(self):
+        demographics = DemographicsMixin()
+        demographics_json = json.dumps(demographics.demographics_statistics)
+        
+        DashboardStatistics.objects.update_or_create(
+            key = 'demographics_statistics',
+            value = demographics_json
+        )
+        
+    def populate_genaral_statistics(self):
+        ae = AdverseEventRecordViewMixin()
+        sae = SeriousAdverseEventRecordViewMixin()
+        
+        ae_json = json.dumps(ae.ae_statistics)
+        sae_json = json.dumps(sae.sae_statistics)
+        
+        DashboardStatistics.objects.update_or_create(
+            key='ae_statistics', 
+            value=ae_json
+        )
+        
+        DashboardStatistics.objects.update_or_create(
+            key='sae_statistics', 
+            value=sae_json
         )
             
             
