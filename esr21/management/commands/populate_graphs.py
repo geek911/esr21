@@ -1,4 +1,4 @@
-import json
+import orjson as json
 from django.core.management.base import BaseCommand
 from esr21_reports.views.graphs_mixins import (
     AgeDistributionGraphMixin,
