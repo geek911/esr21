@@ -41,14 +41,20 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
             received_dose='Yes', received_dose_before='second_dose',
             site__id=settings.SITE_ID)
 
+        vaccinated_booster_dose = self.vaccine_model_cls.objects.filter(
+            received_dose='Yes', received_dose_before='booster_dose',
+            site__id=settings.SITE_ID)
+
         screened_subjects = subject_screening.count()
         consented_subjects = subject_consent.count()
         vaccinated_first_dose = vaccinated_first_dose.count()
         vaccinated_second_dose = vaccinated_second_dose.count()
+        vaccinated_booster_dose = vaccinated_booster_dose.count()
 
         context.update(
             vaccinated_first_dose=vaccinated_first_dose,
             vaccinated_second_dose=vaccinated_second_dose,
+            vaccinated_booster_dose=vaccinated_booster_dose,
             consented_subjects=consented_subjects,
             screened_subjects=screened_subjects)
 
