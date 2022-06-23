@@ -1,4 +1,4 @@
-import orjson as json
+import json
 from django.core.management.base import BaseCommand
 from esr21_reports.views.graphs_mixins import (
     AgeDistributionGraphMixin,
@@ -7,7 +7,7 @@ from esr21_reports.views.graphs_mixins import (
     VaccinationGraphMixin)
 from esr21_reports.models import (
     AgeStatistics, ScreeningStatistics, EnrollmentStatistics,
-    VaccinationStatistics, DashboardStatistics)
+    VaccinationStatistics, DashboardStatistics, VaccinationEnrollments)
 from esr21_reports.views.enrollment_report_mixin import EnrollmentReportMixin
 from esr21_reports.views.psrt_mixins import DemographicsMixin
 from esr21_reports.views.adverse_events import (
@@ -31,6 +31,7 @@ class Command(BaseCommand):
         self.populate_vaccinate()
         self.populate_demographics()
         self.populate_genaral_statistics()
+        self.populate_vaccine_enrollments()
 
     def populate_age_graph(self):
         age_distribution = AgeDistributionGraphMixin()
@@ -63,7 +64,7 @@ class Command(BaseCommand):
             )
         screening_mixin = ScreeningReportsViewMixin()
         screening_statistics_json = json.dumps(screening_mixin.total_screened_participants)
-            
+
         DashboardStatistics.objects.update_or_create(
             key='screening_statistics',
             value=screening_statistics_json
@@ -84,7 +85,6 @@ class Command(BaseCommand):
                 site=site,
                 defaults=defaults
             )
-            
 
     def populate_enrollement_enrollement_with_conhorts(self):
         enrollment = EnrollmentReportMixin()
@@ -155,4 +155,21 @@ class Command(BaseCommand):
                 site=site,
                 defaults=defaults
             )
-            
+
+    def populate_vaccine_enrollments(self):
+        enrollment_report = EnrollmentReportMixin()
+        second_dose = enrollment_report.seond_dose_enrollments_elsewhere()
+        booster_dose = enrollment_report.booster_enrollment_elsewhere()
+        doses = [second_dose, booster_dose]
+        for dose in doses:
+            defaults = {
+                'sinovac': dose[1],
+                'pfizer': dose[2],
+                'moderna': dose[3],
+                'janssen': dose[4],
+                'astrazeneca': dose[5]
+            }
+            VaccinationEnrollments.objects.update_or_create(
+                variable=dose[0],
+                defaults=defaults
+            )
