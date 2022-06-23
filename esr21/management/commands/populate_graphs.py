@@ -12,7 +12,7 @@ from esr21_reports.views.enrollment_report_mixin import EnrollmentReportMixin
 from esr21_reports.views.psrt_mixins import DemographicsMixin
 from esr21_reports.views.adverse_events import (
     AdverseEventRecordViewMixin, SeriousAdverseEventRecordViewMixin)
-
+from esr21_reports.views.psrt_mixins import ScreeningReportsViewMixin, StatsPerWeekMixin
 from esr21_reports.views.site_helper_mixin import SiteHelperMixin
 
 
@@ -22,6 +22,7 @@ class Command(BaseCommand):
     siteHelper = SiteHelperMixin()
 
     def handle(self, *args, **kwargs):
+        DashboardStatistics.objects.all().delete()
         self.populate_age_graph()
         self.populate_screening_data()
         self.populate_enrollement_data()
@@ -60,6 +61,13 @@ class Command(BaseCommand):
                     'failed': failed
                 }
             )
+        screening_mixin = ScreeningReportsViewMixin()
+        screening_statistics_json = json.dumps(screening_mixin.total_screened_participants)
+            
+        DashboardStatistics.objects.update_or_create(
+            key='screening_statistics',
+            value=screening_statistics_json
+        )
 
     def populate_enrollement_data(self):
         enrollment = EnrollmentGraphMixin()
@@ -76,6 +84,7 @@ class Command(BaseCommand):
                 site=site,
                 defaults=defaults
             )
+            
 
     def populate_enrollement_enrollement_with_conhorts(self):
         enrollment = EnrollmentReportMixin()
@@ -146,4 +155,4 @@ class Command(BaseCommand):
                 site=site,
                 defaults=defaults
             )
-
+            
