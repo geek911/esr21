@@ -101,6 +101,9 @@ class Command(BaseCommand):
                 enrollment.received_one_doses,
                 enrollment.received_two_doses,
                 enrollment.received_booster_doses,
+                enrollment.screening_for_second_dose,
+                enrollment.screening_for_booster_dose
+
         ]
 
         vaccinated_participants_json = json.dumps(vaccinated_participants)
